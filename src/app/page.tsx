@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -381,7 +381,7 @@ export default function Home() {
       {showChatbot && <Chatbot />}
       <div className="fixed bottom-4 right-4 z-40">
         <Button onClick={handleChatbotToggle}>
-          {showChatbot ? 'Close Chatbot' : 'Open Chatbot'}
+          Ask Bot
         </Button>
       </div>
     </div>
