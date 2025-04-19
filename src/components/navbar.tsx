@@ -55,9 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
               </Link>
             );
           })}
-          <Button variant="ghost" size="sm">
-            Contact Us
-          </Button>
+          
         </div>
       </div>
     </nav>
