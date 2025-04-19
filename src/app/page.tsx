@@ -13,6 +13,11 @@ import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
 import {CalendarIcon} from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+const DynamicGoogleMapComponent = dynamic(() => import('@/components/google-map'), {
+  ssr: false,
+});
 
 const testimonials = [
   {
@@ -20,14 +25,14 @@ const testimonials = [
     title: 'CEO, Company X',
     quote: "AI Insight Hub has revolutionized our business strategy. The insights we've gained have been invaluable.",
     rating: 5,
-    image: 'https://picsum.photos/40/40',
+    image: 'https://lh3.googleusercontent.com/gps-proxy/AAWznzYjLzD0y-W990Gv9wE6N4QWJ8-B84-kX4Bf6Fp227nK_eD_48-8yRz7aN31B-2h1n19h8g3W5S6M5n6_vBHznKzYjHn323_Lg_87i1n304B6o-R6g2w=w408-h306-k-no',
   },
   {
     name: 'Richard Roe',
     title: 'CTO, Company Y',
     quote: "Their AI solutions automated our processes, saving us time and resources. Highly recommend!",
     rating: 4,
-    image: 'https://picsum.photos/41/40',
+    image: 'https://lh3.googleusercontent.com/gps-proxy/AAWznzYjLzD0y-W990Gv9wE6N4QWJ8-B84-kX4Bf6Fp227nK_eD_48-8yRz7aN31B-2h1n19h8g3W5S6M5n6_vBHznKzYjHn323_Lg_87i1n304B6o-R6g2w=w408-h306-k-no',
   },
 ];
 
@@ -67,8 +72,21 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar aiConsultationLink="/ai-consultation" />
-      <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <Navbar aiConsultationLink="/appointment-booking" />
+      <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
+
+        {/* Who We Are Section */}
+        <section className="mb-8 text-center">
+          <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
+          <div className="relative rounded-lg overflow-hidden shadow-md">
+            <video controls muted preload="metadata" className="w-full aspect-video">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <p className="mt-4 text-gray-600">Learn more about our mission and expertise in AI and data analytics.</p>
+          </div>
+        </section>
+
          {/* AI Suggestion Section */}
          <section className="text-center mb-8">
           <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
@@ -79,17 +97,6 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* Who We Are Section */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-center">Who We Are</h2>
-          <div className="relative rounded-lg overflow-hidden shadow-md">
-            <video controls muted preload="metadata" className="w-full aspect-video">
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </section>
-
         {/* Hero Section */}
         <section className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
@@ -98,7 +105,9 @@ export default function Home() {
             Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making,
             and unlock growth opportunities.
           </p>
-          <Button size="lg">Start Your AI-Driven Transformation Today</Button>
+          <Button size="lg" asChild>
+            <Link href="/appointment-booking">Start Your AI-Driven Transformation Today</Link>
+          </Button>
         </section>
 
         {/* Services Offered */}
@@ -127,12 +136,9 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
-                <Link href="/appointment-booking">
-                  <Button className="mt-2 w-full">
-                    Book an Appointment
-                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  <Button asChild>
+                    <Link href="/appointment-booking">Book an Appointment</Link>
                   </Button>
-                </Link>
               </CardContent>
             </Card>
 
@@ -159,12 +165,9 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
-                <Link href="/appointment-booking">
-                  <Button className="mt-2 w-full">
-                    Book an Appointment
-                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  <Button asChild>
+                    <Link href="/appointment-booking">Book an Appointment</Link>
                   </Button>
-                </Link>
               </CardContent>
             </Card>
 
@@ -191,12 +194,9 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(3)}
                 </div>
-                <Link href="/appointment-booking">
-                  <Button className="mt-2 w-full">
-                    Book an Appointment
-                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  <Button asChild>
+                    <Link href="/appointment-booking">Book an Appointment</Link>
                   </Button>
-                </Link>
               </CardContent>
             </Card>
 
@@ -222,12 +222,9 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
-                <Link href="/appointment-booking">
-                  <Button className="mt-2 w-full">
-                    Book an Appointment
-                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  <Button asChild>
+                    <Link href="/appointment-booking">Book an Appointment</Link>
                   </Button>
-                </Link>
               </CardContent>
             </Card>
 
@@ -251,12 +248,9 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
-                <Link href="/appointment-booking">
-                  <Button className="mt-2 w-full">
-                    Book an Appointment
-                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  <Button asChild>
+                    <Link href="/appointment-booking">Book an Appointment</Link>
                   </Button>
-                </Link>
               </CardContent>
             </Card>
           </div>
@@ -351,4 +345,3 @@ export default function Home() {
     </div>
   );
 }
-

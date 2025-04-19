@@ -21,11 +21,11 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
         //if (result?.optimizedLinks) {
          // setSuggestedLinks(result.optimizedLinks);
        // } else {
-          setSuggestedLinks(['Home', 'Services', 'About', 'AI Consultation', 'Contact Us']);
+          setSuggestedLinks(['Home', 'Services', 'About', 'Appointment Booking', 'Contact Us']);
        // }
       } catch (error) {
         console.error('Error fetching optimized links:', error);
-        setSuggestedLinks(['Home', 'Services', 'About', 'AI Consultation', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'About', 'Appointment Booking', 'Contact Us']);
       }
     };
 
@@ -39,14 +39,14 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
-          {['Home', 'Services', 'About', 'AI Consultation', 'Contact'].map(link => {
+          {['Home', 'Services', 'About', 'Appointment Booking', 'Contact'].map(link => {
             let href = '/';
             if (link.toLowerCase() === 'services') {
               href = '/services';
             } else if (link.toLowerCase() === 'about') {
               href = '/about';
-            } else if (link.toLowerCase() === 'ai consultation') {
-              href = '/ai-consultation';
+            } else if (link.toLowerCase() === 'appointment booking') {
+              href = '/appointment-booking';
             } else if (link.toLowerCase() === 'contact') {
               href = '/contact';
             }
@@ -62,3 +62,4 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
+

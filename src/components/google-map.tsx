@@ -6,7 +6,7 @@ interface GoogleMapProps {
   placeId: string;
 }
 
-const GoogleMap: React.FC<GoogleMapProps> = ({placeId}) => {
+const GoogleMapComponent: React.FC<GoogleMapProps> = ({placeId}) => {
   return (
     <iframe
       src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=place_id:${placeId}`}
@@ -21,4 +21,4 @@ const GoogleMap: React.FC<GoogleMapProps> = ({placeId}) => {
   );
 };
 
-export default GoogleMap;
+export default GoogleMapComponent;
