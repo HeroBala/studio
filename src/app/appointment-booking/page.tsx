@@ -55,7 +55,7 @@ const AppointmentBookingPage: React.FC = () => {
 
   return (
     <div className="container mx-auto py-12">
-      <Link href="/" className="mb-8 inline-flex items-center gap-2 text-lg">
+      <Link href="/" className="mb-8 inline-flex items-center gap-2 text-lg" prefetch>
         <ArrowLeft className="h-5 w-5"/>
         Back to Home
       </Link>

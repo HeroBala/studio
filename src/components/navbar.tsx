@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
   return (
     <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold">
+        <Link href="/" className="text-2xl font-bold" prefetch>
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
@@ -54,3 +54,4 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
+
