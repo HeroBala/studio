@@ -20,6 +20,28 @@ body {
   color: #ffc107; /* Color for filled stars */
 }
 
+/* Advanced Animation for AI Insight Hub */
+@keyframes textGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.ai-insight-hub-animation {
+  background: linear-gradient(270deg, #1A237E, #26A69A, #1A237E);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 10s ease infinite;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -188,4 +210,3 @@ body {
 .animate-slide-in-top {
   animation: slideInTop 0.5s ease-out forwards;
 }
-

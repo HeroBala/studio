@@ -31,14 +31,15 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
 
     fetchSuggestedLinks();
   }, []);
+
   return (
     <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
-          AI Insight Hub
+          <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
-          {['Home', 'Services', 'About', 'AI Consultation', 'Contact Us'].map(link => {
+          {['Home', 'Services', 'About', 'AI Consultation', 'Contact'].map(link => {
             let href = '/';
             if (link.toLowerCase() === 'services') {
               href = '/services';
@@ -46,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
               href = '/about';
             } else if (link.toLowerCase() === 'ai consultation') {
               href = '/ai-consultation';
-            } else if (link.toLowerCase() === 'contact us') {
+            } else if (link.toLowerCase() === 'contact') {
               href = '/contact';
             }
             return (
@@ -61,5 +62,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
-
-
