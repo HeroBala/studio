@@ -12,6 +12,7 @@ import {Textarea} from '@/components/ui/textarea';
 import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage} from '@/components/ui/form';
 import {getSuggestedFields, type ContactFormSubmission} from '@/services/contact-form';
 import {useToast} from '@/hooks/use-toast';
+import {cn} from "@/lib/utils";
 
 const formSchema = z.object({
   name: z.string().min(2, {
