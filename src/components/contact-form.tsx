@@ -116,7 +116,7 @@ export function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top">
+          <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent">
             {isSuggestionLoading ? 'Loading...' : 'Submit'}
           </Button>
         </form>
@@ -125,5 +125,6 @@ export function ContactForm() {
     </Card>
   );
 }
+
 
 
