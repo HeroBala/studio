@@ -120,8 +120,13 @@ export default function Home() {
                   <p className="text-sm text-gray-500 mb-2">
                     We leverage AI to analyze market trends and provide strategic recommendations.
                   </p>
-                  <div className="star-rating">
-                    {renderStars(4)}
+                  <div className="flex items-center justify-between">
+                    <div className="star-rating">
+                      {renderStars(4)}
+                    </div>
+                    <Button variant="link" asChild>
+                      <Link href="#" prefetch>Learn More</Link>
+                    </Button>
                   </div>
                 </CardContent>
                 <CardContent className="p-4 flex justify-end">
@@ -151,8 +156,13 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2">
                   Our reports offer actionable insights to improve your business performance.
                 </p>
-                <div className="star-rating">
-                  {renderStars(5)}
+                <div className="flex items-center justify-between">
+                  <div className="star-rating">
+                    {renderStars(5)}
+                  </div>
+                  <Button variant="link" asChild>
+                    <Link href="#" prefetch>Learn More</Link>
+                  </Button>
                 </div>
               </CardContent>
               <CardContent className="p-4 flex justify-end">
@@ -182,8 +192,13 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2">
                   Increase your marketing ROI with our AI-driven solutions.
                 </p>
-                <div className="star-rating">
-                  {renderStars(3)}
+                <div className="flex items-center justify-between">
+                  <div className="star-rating">
+                    {renderStars(3)}
+                  </div>
+                  <Button variant="link" asChild>
+                    <Link href="#" prefetch>Learn More</Link>
+                  </Button>
                 </div>
               </CardContent>
               <CardContent className="p-4 flex justify-end">
@@ -212,8 +227,13 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2">
                   Automate repetitive tasks and free up your resources with our AI solutions.
                 </p>
-                <div className="star-rating">
-                  {renderStars(4)}
+                <div className="flex items-center justify-between">
+                  <div className="star-rating">
+                    {renderStars(4)}
+                  </div>
+                  <Button variant="link" asChild>
+                    <Link href="#" prefetch>Learn More</Link>
+                  </Button>
                 </div>
               </CardContent>
               <CardContent className="p-4 flex justify-end">
@@ -240,8 +260,13 @@ export default function Home() {
                 <p className="text-sm text-gray-500 mb-2">
                   We build custom AI models to address your unique business challenges.
                 </p>
-                <div className="star-rating">
-                  {renderStars(5)}
+                <div className="flex items-center justify-between">
+                  <div className="star-rating">
+                    {renderStars(5)}
+                  </div>
+                  <Button variant="link" asChild>
+                    <Link href="#" prefetch>Learn More</Link>
+                  </Button>
                 </div>
               </CardContent>
               <CardContent className="p-4 flex justify-end">
@@ -396,3 +421,4 @@ export default function Home() {
     </div>
   );
 }
+
