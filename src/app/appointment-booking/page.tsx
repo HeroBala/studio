@@ -75,7 +75,7 @@ const AppointmentBookingPage: React.FC = () => {
             }}
             classNames={{
               outside: "text-muted-foreground opacity-50",
-              day_before: "text-red-500",
+              day_before: "text-red-500 opacity-50",
             }}
           />
           {selectedDate && (
