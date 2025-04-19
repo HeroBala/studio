@@ -69,12 +69,12 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 animate-fade-in">
         <FormField
           control={form.control}
           name="name"
           render={({field}) => (
-            <FormItem>
+            <FormItem className="animate-slide-in-left">
               <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input placeholder="Your name" {...field} />
@@ -88,7 +88,7 @@ export function ContactForm() {
           control={form.control}
           name="email"
           render={({field}) => (
-            <FormItem>
+            <FormItem className="animate-slide-in-right">
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input placeholder="example@example.com" type="email" {...field} />
@@ -102,7 +102,7 @@ export function ContactForm() {
           control={form.control}
           name="message"
           render={({field}) => (
-            <FormItem>
+            <FormItem className="animate-slide-in-bottom">
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea placeholder="Tell us more about your needs..." {...field} />
@@ -112,7 +112,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSuggestionLoading}>
+        <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top">
           {isSuggestionLoading ? 'Loading...' : 'Submit'}
         </Button>
       </form>

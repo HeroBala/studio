@@ -1,17 +1,18 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/components/ui/accordion';
 import {ContactForm} from '@/components/contact-form';
 import {TitleOptimizerForm} from '@/components/title-optimizer-form';
 import {ContentSummarizer} from '@/components/content-summarizer';
-import GoogleMap from '@/components/google-map';
 import TestimonialCard from '@/components/testimonial-card';
 import {useEffect, useState} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
+import {CalendarIcon} from 'lucide-react';
 
 const testimonials = [
   {
@@ -36,8 +37,6 @@ const aiSuggestions = [
   "Personalize marketing campaigns with AI-driven content.",
   "Predict future sales trends with machine learning.",
 ];
-
-const placeId = "ChIJGX2vBJa1t4kRmO5sFjCiu2w";
 
 export default function Home() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -117,6 +116,12 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
+                <Link href="/appointment-booking">
+                  <Button className="mt-4 w-full">
+                    Book an Appointment
+                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -143,6 +148,12 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
+                <Link href="/appointment-booking">
+                  <Button className="mt-4 w-full">
+                    Book an Appointment
+                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -169,6 +180,12 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(3)}
                 </div>
+                <Link href="/appointment-booking">
+                  <Button className="mt-4 w-full">
+                    Book an Appointment
+                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -194,6 +211,12 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
+                <Link href="/appointment-booking">
+                  <Button className="mt-4 w-full">
+                    Book an Appointment
+                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -217,6 +240,12 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
+                <Link href="/appointment-booking">
+                  <Button className="mt-4 w-full">
+                    Book an Appointment
+                    <CalendarIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
@@ -292,14 +321,6 @@ export default function Home() {
                 <ContentSummarizer />
               </CardContent>
             </Card>
-          </div>
-        </section>
-
-        {/* Find Us on Google */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Find Us on Google</h2>
-          <div className="rounded-lg overflow-hidden shadow-md">
-            <GoogleMap placeId={placeId} />
           </div>
         </section>
 
