@@ -9,10 +9,11 @@ import {ContactForm} from '@/components/contact-form';
 import {TitleOptimizerForm} from '@/components/title-optimizer-form';
 import {ContentSummarizer} from '@/components/content-summarizer';
 import TestimonialCard from '@/components/testimonial-card';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
 import {CalendarIcon} from 'lucide-react';
+import {useInView} from 'react-intersection-observer';
 
 const testimonials = [
   {
@@ -65,12 +66,47 @@ export default function Home() {
     return stars;
   };
 
+  const { ref: aiSuggestionRef, inView: aiSuggestionInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: heroRef, inView: heroInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: servicesRef, inView: servicesInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: testimonialsRef, inView: testimonialsInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: howItWorksRef, inView: howItWorksInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: aiToolsRef, inView: aiToolsInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const { ref: contactRef, inView: contactInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/ai-consultation" />
       <main className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         {/* AI Suggestion Section */}
-        <section className="text-center mb-16">
+        <section ref={aiSuggestionRef} className={`text-center mb-16 ${aiSuggestionInView ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-3xl font-semibold mb-8">AI-Powered Business Insights</h2>
           <ul className="list-disc list-inside text-lg text-gray-600">
             {aiSuggestions.map((suggestion, index) => (
@@ -80,7 +116,7 @@ export default function Home() {
         </section>
 
         {/* Hero Section */}
-        <section className="text-center mb-16">
+        <section ref={heroRef} className={`text-center mb-16 ${heroInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
           <h1 className="text-4xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
           <p className="text-lg text-gray-600 mb-8">
             Welcome to AI Insight Hub, where cutting-edge AI technology meets data analytics to deliver smart solutions and actionable insights.
@@ -90,8 +126,19 @@ export default function Home() {
           <Button size="lg">Start Your AI-Driven Transformation Today</Button>
         </section>
 
-        {/* Services Offered */}
+        {/* Who We Are Section */}
         <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-8 text-center">Who We Are</h2>
+          <div className="relative rounded-lg overflow-hidden shadow-md">
+            <video controls muted preload="metadata" className="w-full aspect-video">
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
+        {/* Services Offered */}
+        <section ref={servicesRef} className={`mb-16 ${servicesInView ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-3xl font-semibold mb-8 text-center">Services Offered</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* AI-Powered Business Strategy Consulting */}
@@ -252,7 +299,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="mb-16">
+        <section ref={testimonialsRef} className={`mb-16 ${testimonialsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
           <h2 className="text-3xl font-semibold mb-8 text-center">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -269,7 +316,7 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section className="mb-16">
+        <section ref={howItWorksRef} className={`mb-16 ${howItWorksInView ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-3xl font-semibold mb-8 text-center">How It Works</h2>
           <Accordion type="single" collapsible>
             <AccordionItem value="step-1">
@@ -300,7 +347,7 @@ export default function Home() {
         </section>
 
         {/* AI-Driven Tools */}
-        <section className="mb-16">
+        <section ref={aiToolsRef} className={`mb-16 ${aiToolsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
           <h2 className="text-3xl font-semibold mb-8 text-center">AI-Driven Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card>
@@ -325,7 +372,7 @@ export default function Home() {
         </section>
 
         {/* Contact Form Section */}
-        <section>
+        <section ref={contactRef} className={`mb-16 ${contactInView ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-3xl font-semibold mb-8 text-center">Contact Us</h2>
           <ContactForm />
         </section>
