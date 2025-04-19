@@ -20,6 +20,7 @@ import {
 import {useRouter} from 'next/navigation';
 import {ArrowLeft} from "lucide-react";
 import Link from 'next/link';
+import {format} from "date-fns";
 
 const bookingSchema = z.object({
   name: z.string().min(2, {
@@ -35,7 +36,7 @@ const bookingSchema = z.object({
 });
 
 const AppointmentBookingPage: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof bookingSchema>>({
@@ -69,6 +70,13 @@ const AppointmentBookingPage: React.FC = () => {
             selected={selectedDate}
             onSelect={setSelectedDate}
             className="rounded-md border"
+            modifiers={{
+              before: new Date(),
+            }}
+            classNames={{
+              outside: "text-muted-foreground opacity-50",
+              day_before: "text-red-500",
+            }}
           />
           {selectedDate && (
             <p className="mt-4">Selected Date: {selectedDate.toLocaleDateString()}</p>
