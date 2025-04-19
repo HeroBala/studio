@@ -2,13 +2,13 @@
 
 import React, {useState, useEffect, useRef} from 'react';
 import {Button} from '@/components/ui/button';
-//import {trainChatbot} from '@/ai/flows/train-chatbot-flow';
+import {X} from "lucide-react";
 
 const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState('');
-  //const [isTraining, setIsTraining] = useState(false);
   const chatboxRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     if (chatboxRef.current) {
@@ -34,24 +34,9 @@ const Chatbot: React.FC = () => {
     }
   };
 
-  //const handleTrainChatbot = async () => {
-  //  setIsTraining(true);
-  //  try {
-  //    // Replace with your actual webpage URL
-  //    const trainingResult = await trainChatbot({webpageUrl: 'https://ai-insight-hub.web.app/'});
-  //    setMessages(prevMessages => [...prevMessages, `AI: Training initiated...`]);
-  //    if (trainingResult.success) {
-  //      setMessages(prevMessages => [...prevMessages, `AI: Chatbot trained successfully. ${trainingResult.message}`]);
-  //    } else {
-  //      setMessages(prevMessages => [...prevMessages, `AI: Chatbot training failed: ${trainingResult.message}`]);
-  //    }
-  //  } catch (error: any) {
-  //    console.error('Error training chatbot:', error);
-  //    setMessages(prevMessages => [...prevMessages, `AI: Error training chatbot: ${error.message}`]);
-  //  } finally {
-  //    setIsTraining(false);
-  //  }
-  //};
+  const handleCloseChatbot = () => {
+    setIsOpen(false);
+  };
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
@@ -59,10 +44,18 @@ const Chatbot: React.FC = () => {
     }
   };
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div className="fixed bottom-4 right-4 w-96 bg-background border rounded-md shadow-lg flex flex-col h-96 z-50">
       <div className="p-4 border-b flex items-center justify-between">
         <h3 className="text-lg font-semibold">AI Chatbot</h3>
+        <Button variant="ghost" size="icon" onClick={handleCloseChatbot}>
+          <X className="h-4 w-4"/>
+          <span className="sr-only">Close Chatbot</span>
+        </Button>
       </div>
       <div ref={chatboxRef} className="flex-1 overflow-y-auto p-4 space-y-2">
         {messages.map((message, index) => (
@@ -89,13 +82,6 @@ const Chatbot: React.FC = () => {
               Send
             </Button>
           </div>
-          {/*<Button
-            onClick={handleTrainChatbot}
-            disabled={isTraining}
-            className="w-full"
-          >
-            {isTraining ? 'Training...' : 'Train Chatbot'}
-          </Button>*/}
         </div>
       </div>
     </div>
