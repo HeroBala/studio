@@ -73,7 +73,7 @@ export function ContactForm() {
     <Card>
       <CardContent className="p-8">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 animate-fade-in">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 animate-fade-in flex flex-col justify-end">
           <FormField
             control={form.control}
             name="name"
@@ -116,7 +116,7 @@ export function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent">
+          <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent self-end">
             {isSuggestionLoading ? 'Loading...' : 'Submit'}
           </Button>
         </form>
@@ -125,6 +125,5 @@ export function ContactForm() {
     </Card>
   );
 }
-
 
 
