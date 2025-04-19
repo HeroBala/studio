@@ -106,7 +106,7 @@ export default function Home() {
             and unlock growth opportunities.
           </p>
           <Button size="lg" asChild>
-            <Link href="/appointment-booking">Start Your AI-Driven Transformation Today</Link>
+            <Link href="/appointment-booking" prefetch>Start Your AI-Driven Transformation Today</Link>
           </Button>
         </section>
 
@@ -137,7 +137,7 @@ export default function Home() {
                   {renderStars(4)}
                 </div>
                   <Button asChild>
-                    <Link href="/appointment-booking">Book an Appointment</Link>
+                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
               </CardContent>
             </Card>
@@ -166,7 +166,7 @@ export default function Home() {
                   {renderStars(5)}
                 </div>
                   <Button asChild>
-                    <Link href="/appointment-booking">Book an Appointment</Link>
+                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
               </CardContent>
             </Card>
@@ -195,7 +195,7 @@ export default function Home() {
                   {renderStars(3)}
                 </div>
                   <Button asChild>
-                    <Link href="/appointment-booking">Book an Appointment</Link>
+                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
               </CardContent>
             </Card>
@@ -223,7 +223,7 @@ export default function Home() {
                   {renderStars(4)}
                 </div>
                   <Button asChild>
-                    <Link href="/appointment-booking">Book an Appointment</Link>
+                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
               </CardContent>
             </Card>
@@ -249,7 +249,7 @@ export default function Home() {
                   {renderStars(5)}
                 </div>
                   <Button asChild>
-                    <Link href="/appointment-booking">Book an Appointment</Link>
+                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
               </CardContent>
             </Card>
