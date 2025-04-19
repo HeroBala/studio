@@ -16,11 +16,6 @@ import dynamic from 'next/dynamic';
 import {useInView} from 'react-intersection-observer';
 import TestimonialCard from '@/components/testimonial-card'; // Import TestimonialCard
 
-
-const DynamicGoogleMapComponent = dynamic(() => import('@/components/google-map'), {
-  ssr: false,
-});
-
 const testimonials = [
   {
     name: 'Jane Doe',
@@ -47,6 +42,10 @@ const aiSuggestions = [
 
 export default function Home() {
   const [showChatbot, setShowChatbot] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
     // Client-side rendering, safe to use window
@@ -77,28 +76,6 @@ export default function Home() {
       <Navbar aiConsultationLink="/appointment-booking" />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
 
-         {/* AI Suggestion Section */}
-         <section className="text-center mb-8">
-          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
-          <ul className="list-disc list-inside text-lg text-gray-600">
-            {aiSuggestions.map((suggestion, index) => (
-              <li key={index} className="mb-1">{suggestion}</li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Who We Are Section */}
-        {/*<section className="mb-8 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
-          <div className="relative rounded-lg overflow-hidden shadow-md">
-            <video controls muted preload="metadata" className="w-full aspect-video">
-              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className="mt-4 text-gray-600">Learn more about our mission and expertise in AI and data analytics.</p>
-          </div>
-        </section>*/}
-
         {/* Hero Section */}
         <section className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
@@ -107,6 +84,15 @@ export default function Home() {
             Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making,
             and unlock growth opportunities.
           </p>
+          {/* AI Suggestion Section */}
+          <section className="text-center mb-8">
+            <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
+            <ul className="list-disc list-inside text-lg text-gray-600">
+              {aiSuggestions.map((suggestion, index) => (
+                <li key={index} className="mb-1">{suggestion}</li>
+              ))}
+            </ul>
+          </section>
           <Button size="lg" asChild>
             <Link href="/appointment-booking" prefetch>Start Your AI-Driven Transformation Today</Link>
           </Button>
@@ -401,5 +387,3 @@ export default function Home() {
     </div>
   );
 }
-
-
