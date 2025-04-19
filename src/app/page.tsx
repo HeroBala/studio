@@ -104,31 +104,11 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/ai-consultation" />
-      <main className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        {/* AI Suggestion Section */}
-        <section ref={aiSuggestionRef} className={`text-center mb-16 ${aiSuggestionInView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-3xl font-semibold mb-8">AI-Powered Business Insights</h2>
-          <ul className="list-disc list-inside text-lg text-gray-600">
-            {aiSuggestions.map((suggestion, index) => (
-              <li key={index} className="mb-2">{suggestion}</li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Hero Section */}
-        <section ref={heroRef} className={`text-center mb-16 ${heroInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
-          <h1 className="text-4xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
-          <p className="text-lg text-gray-600 mb-8">
-            Welcome to AI Insight Hub, where cutting-edge AI technology meets data analytics to deliver smart solutions and actionable insights.
-            Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making,
-            and unlock growth opportunities.
-          </p>
-          <Button size="lg">Start Your AI-Driven Transformation Today</Button>
-        </section>
+      <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
 
         {/* Who We Are Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Who We Are</h2>
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-center">Who We Are</h2>
           <div className="relative rounded-lg overflow-hidden shadow-md">
             <video controls muted preload="metadata" className="w-full aspect-video">
               <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
@@ -137,10 +117,31 @@ export default function Home() {
           </div>
         </section>
 
+        {/* AI Suggestion Section */}
+        <section ref={aiSuggestionRef} className={`text-center mb-8 ${aiSuggestionInView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
+          <ul className="list-disc list-inside text-lg text-gray-600">
+            {aiSuggestions.map((suggestion, index) => (
+              <li key={index} className="mb-1">{suggestion}</li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Hero Section */}
+        <section ref={heroRef} className={`text-center mb-8 ${heroInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
+          <h1 className="text-3xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
+          <p className="text-lg text-gray-600 mb-6">
+            Welcome to AI Insight Hub, where cutting-edge AI technology meets data analytics to deliver smart solutions and actionable insights.
+            Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making,
+            and unlock growth opportunities.
+          </p>
+          <Button size="lg">Start Your AI-Driven Transformation Today</Button>
+        </section>
+
         {/* Services Offered */}
-        <section ref={servicesRef} className={`mb-16 ${servicesInView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-3xl font-semibold mb-8 text-center">Services Offered</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section ref={servicesRef} className={`mb-8 ${servicesInView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className="text-2xl font-semibold mb-4 text-center">Services Offered</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* AI-Powered Business Strategy Consulting */}
             <Card className="hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
@@ -149,22 +150,22 @@ export default function Home() {
                   Use predictive analytics and AI algorithms to help businesses make informed decisions and drive future growth.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <Image
                   src="https://picsum.photos/200/150"
                   alt="AI Consulting"
                   width={200}
                   height={150}
-                  className="rounded-md mb-4"
+                  className="rounded-md mb-2"
                 />
-                <p className="text-sm text-gray-500 mb-4">
+                <p className="text-sm text-gray-500 mb-2">
                   We leverage AI to analyze market trends and provide strategic recommendations.
                 </p>
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
                 <Link href="/appointment-booking">
-                  <Button className="mt-4 w-full">
+                  <Button className="mt-2 w-full">
                     Book an Appointment
                     <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
@@ -181,22 +182,22 @@ export default function Home() {
                   optimize operations and performance.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <Image
                   src="https://picsum.photos/201/150"
                   alt="Data Analytics"
                   width={200}
                   height={150}
-                  className="rounded-md mb-4"
+                  className="rounded-md mb-2"
                 />
-                <p className="text-sm text-gray-500 mb-4">
+                <p className="text-sm text-gray-500 mb-2">
                   Our reports offer actionable insights to improve your business performance.
                 </p>
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
                 <Link href="/appointment-booking">
-                  <Button className="mt-4 w-full">
+                  <Button className="mt-2 w-full">
                     Book an Appointment
                     <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
@@ -213,22 +214,22 @@ export default function Home() {
                   campaigns.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <Image
                   src="https://picsum.photos/202/150"
                   alt="AI Marketing"
                   width={200}
                   height={150}
-                  className="rounded-md mb-4"
+                  className="rounded-md mb-2"
                 />
-                <p className="text-sm text-gray-500 mb-4">
+                <p className="text-sm text-gray-500 mb-2">
                   Increase your marketing ROI with our AI-driven solutions.
                 </p>
                 <div className="star-rating">
                   {renderStars(3)}
                 </div>
                 <Link href="/appointment-booking">
-                  <Button className="mt-4 w-full">
+                  <Button className="mt-2 w-full">
                     Book an Appointment
                     <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
@@ -244,22 +245,22 @@ export default function Home() {
                   Help businesses automate their workflows with AI, reducing operational costs and increasing efficiency.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <Image
                   src="https://picsum.photos/203/150"
                   alt="AI Automation"
                   width={200}
                   height={150}
-                  className="rounded-md mb-4"
+                  className="rounded-md mb-2"
                 />
-                <p className="text-sm text-gray-500 mb-4">
+                <p className="text-sm text-gray-500 mb-2">
                   Automate repetitive tasks and free up your resources with our AI solutions.
                 </p>
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
                 <Link href="/appointment-booking">
-                  <Button className="mt-4 w-full">
+                  <Button className="mt-2 w-full">
                     Book an Appointment
                     <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
@@ -273,22 +274,22 @@ export default function Home() {
                 <CardTitle className="text-xl font-semibold">Customized AI Solutions for Businesses</CardTitle>
                 <CardDescription className="text-gray-500">Create and implement AI models tailored to your client's specific industry needs.</CardDescription>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <Image
                   src="https://picsum.photos/204/150"
                   alt="Custom AI"
                   width={200}
                   height={150}
-                  className="rounded-md mb-4"
+                  className="rounded-md mb-2"
                 />
-                <p className="text-sm text-gray-500 mb-4">
+                <p className="text-sm text-gray-500 mb-2">
                   We build custom AI models to address your unique business challenges.
                 </p>
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
                 <Link href="/appointment-booking">
-                  <Button className="mt-4 w-full">
+                  <Button className="mt-2 w-full">
                     Book an Appointment
                     <CalendarIcon className="ml-2 h-4 w-4" />
                   </Button>
@@ -299,9 +300,9 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section ref={testimonialsRef} className={`mb-16 ${testimonialsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
-          <h2 className="text-3xl font-semibold mb-8 text-center">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <section ref={testimonialsRef} className={`mb-8 ${testimonialsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
+          <h2 className="text-2xl font-semibold mb-4 text-center">What Our Clients Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
@@ -316,8 +317,8 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section ref={howItWorksRef} className={`mb-16 ${howItWorksInView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-3xl font-semibold mb-8 text-center">How It Works</h2>
+        <section ref={howItWorksRef} className={`mb-8 ${howItWorksInView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className="text-2xl font-semibold mb-4 text-center">How It Works</h2>
           <Accordion type="single" collapsible>
             <AccordionItem value="step-1">
               <AccordionTrigger>Step 1: AI &amp; Data Assessment</AccordionTrigger>
@@ -347,15 +348,15 @@ export default function Home() {
         </section>
 
         {/* AI-Driven Tools */}
-        <section ref={aiToolsRef} className={`mb-16 ${aiToolsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
-          <h2 className="text-3xl font-semibold mb-8 text-center">AI-Driven Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section ref={aiToolsRef} className={`mb-8 ${aiToolsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
+          <h2 className="text-2xl font-semibold mb-4 text-center">AI-Driven Tools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card>
               <CardHeader>
                 <CardTitle>Title Optimizer</CardTitle>
                 <CardDescription>Generate alternative titles and headlines based on keywords and SEO best practices.</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4">
                 <TitleOptimizerForm />
               </CardContent>
             </Card>
@@ -364,7 +365,7 @@ export default function Home() {
                 <CardTitle>Content Summarizer</CardTitle>
                 <CardDescription>Automatically generate concise summaries of the provided content.</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4">
                 <ContentSummarizer />
               </CardContent>
             </Card>
@@ -372,8 +373,8 @@ export default function Home() {
         </section>
 
         {/* Contact Form Section */}
-        <section ref={contactRef} className={`mb-16 ${contactInView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-3xl font-semibold mb-8 text-center">Contact Us</h2>
+        <section ref={contactRef} className={`mb-8 ${contactInView ? 'animate-fade-in' : 'opacity-0'}`}>
+          <h2 className="text-2xl font-semibold mb-4 text-center">Contact Us</h2>
           <ContactForm />
         </section>
       </main>
