@@ -49,8 +49,8 @@ const Chatbot: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 w-96 bg-background border rounded-md shadow-lg flex flex-col h-96 z-50">
-      <div className="p-4 border-b flex items-center justify-between">
+    <div className="fixed bottom-4 right-4 w-96 bg-card border rounded-md shadow-lg flex flex-col h-96 z-50">
+      <div className="p-4 border-b flex items-center justify-between bg-secondary text-secondary-foreground">
         <h3 className="text-lg font-semibold">Your Bot</h3>
         <Button variant="ghost" size="icon" onClick={handleCloseChatbot}>
           <X className="h-4 w-4"/>
