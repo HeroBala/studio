@@ -13,7 +13,6 @@ import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
 import {CalendarIcon} from 'lucide-react';
-import {useInView} from 'react-intersection-observer';
 
 const testimonials = [
   {
@@ -66,45 +65,19 @@ export default function Home() {
     return stars;
   };
 
-  const { ref: aiSuggestionRef, inView: aiSuggestionInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const { ref: heroRef, inView: heroInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const { ref: servicesRef, inView: servicesInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const { ref: testimonialsRef, inView: testimonialsInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const { ref: howItWorksRef, inView: howItWorksInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const { ref: aiToolsRef, inView: aiToolsInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
-  const { ref: contactRef, inView: contactInView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/ai-consultation" />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+         {/* AI Suggestion Section */}
+         <section className="text-center mb-8">
+          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
+          <ul className="list-disc list-inside text-lg text-gray-600">
+            {aiSuggestions.map((suggestion, index) => (
+              <li key={index} className="mb-1">{suggestion}</li>
+            ))}
+          </ul>
+        </section>
 
         {/* Who We Are Section */}
         <section className="mb-8">
@@ -117,18 +90,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* AI Suggestion Section */}
-        <section ref={aiSuggestionRef} className={`text-center mb-8 ${aiSuggestionInView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
-          <ul className="list-disc list-inside text-lg text-gray-600">
-            {aiSuggestions.map((suggestion, index) => (
-              <li key={index} className="mb-1">{suggestion}</li>
-            ))}
-          </ul>
-        </section>
-
         {/* Hero Section */}
-        <section ref={heroRef} className={`text-center mb-8 ${heroInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
+        <section className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
           <p className="text-lg text-gray-600 mb-6">
             Welcome to AI Insight Hub, where cutting-edge AI technology meets data analytics to deliver smart solutions and actionable insights.
@@ -139,7 +102,7 @@ export default function Home() {
         </section>
 
         {/* Services Offered */}
-        <section ref={servicesRef} className={`mb-8 ${servicesInView ? 'animate-fade-in' : 'opacity-0'}`}>
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-center">Services Offered</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* AI-Powered Business Strategy Consulting */}
@@ -300,7 +263,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section ref={testimonialsRef} className={`mb-8 ${testimonialsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-center">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {testimonials.map((testimonial, index) => (
@@ -317,7 +280,7 @@ export default function Home() {
         </section>
 
         {/* How It Works Section */}
-        <section ref={howItWorksRef} className={`mb-8 ${howItWorksInView ? 'animate-fade-in' : 'opacity-0'}`}>
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-center">How It Works</h2>
           <Accordion type="single" collapsible>
             <AccordionItem value="step-1">
@@ -348,7 +311,7 @@ export default function Home() {
         </section>
 
         {/* AI-Driven Tools */}
-        <section ref={aiToolsRef} className={`mb-8 ${aiToolsInView ? 'animate-slide-in-bottom' : 'opacity-0 translate-y-20'}`}>
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-center">AI-Driven Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card>
@@ -373,7 +336,7 @@ export default function Home() {
         </section>
 
         {/* Contact Form Section */}
-        <section ref={contactRef} className={`mb-8 ${contactInView ? 'animate-fade-in' : 'opacity-0'}`}>
+        <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-center">Contact Us</h2>
           <ContactForm />
         </section>
