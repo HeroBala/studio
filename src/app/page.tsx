@@ -88,7 +88,7 @@ export default function Home() {
         </section>
 
         {/* Who We Are Section */}
-        <section className="mb-8 text-center">
+        {/*<section className="mb-8 text-center">
           <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
           <div className="relative rounded-lg overflow-hidden shadow-md">
             <video controls muted preload="metadata" className="w-full aspect-video">
@@ -97,7 +97,7 @@ export default function Home() {
             </video>
             <p className="mt-4 text-gray-600">Learn more about our mission and expertise in AI and data analytics.</p>
           </div>
-        </section>
+        </section>*/}
 
         {/* Hero Section */}
         <section className="text-center mb-8">
@@ -401,4 +401,5 @@ export default function Home() {
     </div>
   );
 }
+
 
