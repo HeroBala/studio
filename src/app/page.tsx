@@ -8,12 +8,14 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/co
 import {ContactForm} from '@/components/contact-form';
 import {TitleOptimizerForm} from '@/components/title-optimizer-form';
 import {ContentSummarizer} from '@/components/content-summarizer';
-import TestimonialCard from '@/components/testimonial-card';
 import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
 import {CalendarIcon} from 'lucide-react';
 import dynamic from 'next/dynamic';
+import {useInView} from 'react-intersection-observer';
+import TestimonialCard from '@/components/testimonial-card'; // Import TestimonialCard
+
 
 const DynamicGoogleMapComponent = dynamic(() => import('@/components/google-map'), {
   ssr: false,
@@ -75,6 +77,16 @@ export default function Home() {
       <Navbar aiConsultationLink="/appointment-booking" />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
 
+         {/* AI Suggestion Section */}
+         <section className="text-center mb-8">
+          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
+          <ul className="list-disc list-inside text-lg text-gray-600">
+            {aiSuggestions.map((suggestion, index) => (
+              <li key={index} className="mb-1">{suggestion}</li>
+            ))}
+          </ul>
+        </section>
+
         {/* Who We Are Section */}
         <section className="mb-8 text-center">
           <h2 className="text-2xl font-semibold mb-4">Who We Are</h2>
@@ -85,16 +97,6 @@ export default function Home() {
             </video>
             <p className="mt-4 text-gray-600">Learn more about our mission and expertise in AI and data analytics.</p>
           </div>
-        </section>
-
-         {/* AI Suggestion Section */}
-         <section className="text-center mb-8">
-          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
-          <ul className="list-disc list-inside text-lg text-gray-600">
-            {aiSuggestions.map((suggestion, index) => (
-              <li key={index} className="mb-1">{suggestion}</li>
-            ))}
-          </ul>
         </section>
 
         {/* Hero Section */}
@@ -251,6 +253,60 @@ export default function Home() {
                   <Button asChild>
                     <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+         {/* Our Team Section */}
+         <section className="mb-8 text-center">
+          <h2 className="text-2xl font-semibold mb-4">Our Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Team Member 1 */}
+            <Card className="hover:shadow-xl transition-shadow duration-300">
+              <CardContent className="p-4">
+                <Image
+                  src="https://picsum.photos/100/100"
+                  alt="Team Member 1"
+                  width={100}
+                  height={100}
+                  className="rounded-full mx-auto mb-2"
+                />
+                <h3 className="text-lg font-semibold">John Smith</h3>
+                <p className="text-sm text-gray-500">AI Specialist</p>
+                <p className="text-sm text-gray-500">Expert in machine learning and AI solutions.</p>
+              </CardContent>
+            </Card>
+
+            {/* Team Member 2 */}
+            <Card className="hover:shadow-xl transition-shadow duration-300">
+              <CardContent className="p-4">
+                <Image
+                  src="https://picsum.photos/101/100"
+                  alt="Team Member 2"
+                  width={100}
+                  height={100}
+                  className="rounded-full mx-auto mb-2"
+                />
+                <h3 className="text-lg font-semibold">Emily Johnson</h3>
+                <p className="text-sm text-gray-500">Data Analyst</p>
+                <p className="text-sm text-gray-500">Expert in data analytics and reporting.</p>
+              </CardContent>
+            </Card>
+
+            {/* Team Member 3 */}
+            <Card className="hover:shadow-xl transition-shadow duration-300">
+              <CardContent className="p-4">
+                <Image
+                  src="https://picsum.photos/102/100"
+                  alt="Team Member 3"
+                  width={100}
+                  height={100}
+                  className="rounded-full mx-auto mb-2"
+                />
+                <h3 className="text-lg font-semibold">David Brown</h3>
+                <p className="text-sm text-gray-500">Marketing Strategist</p>
+                <p className="text-sm text-gray-500">Expert in AI-driven marketing solutions.</p>
               </CardContent>
             </Card>
           </div>
