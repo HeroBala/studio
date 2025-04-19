@@ -71,11 +71,7 @@ const AppointmentBookingPage: React.FC = () => {
             onSelect={setSelectedDate}
             className="rounded-md border"
             modifiers={{
-              before: new Date(),
-            }}
-            classNames={{
-              outside: "text-muted-foreground opacity-50",
-              day_before: "text-red-500 opacity-50",
+              disabled: { before: new Date() },
             }}
           />
           {selectedDate && (
