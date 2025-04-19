@@ -311,7 +311,7 @@ export default function Home() {
       </main>
 
       {showChatbot && <Chatbot />}
-      <div className="fixed bottom-4 right-4">
+      <div className="fixed bottom-4 right-4 z-40">
         <Button onClick={handleChatbotToggle}>
           {showChatbot ? 'Close Chatbot' : 'Open Chatbot'}
         </Button>
