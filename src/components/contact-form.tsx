@@ -79,7 +79,7 @@ export function ContactForm() {
             name="name"
             render={({field}) => (
               <FormItem className="animate-slide-in-left">
-                <FormLabel>Name</FormLabel>
+                <FormLabel className="text-lg font-semibold text-foreground">Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Your name" {...field} />
                 </FormControl>
@@ -93,7 +93,7 @@ export function ContactForm() {
             name="email"
             render={({field}) => (
               <FormItem className="animate-slide-in-right">
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-lg font-semibold text-foreground">Email</FormLabel>
                 <FormControl>
                   <Input placeholder="example@example.com" type="email" {...field} />
                 </FormControl>
@@ -107,7 +107,7 @@ export function ContactForm() {
             name="message"
             render={({field}) => (
               <FormItem className="animate-slide-in-bottom">
-                <FormLabel>Message</FormLabel>
+                <FormLabel className="text-lg font-semibold text-foreground">Message</FormLabel>
                 <FormControl>
                   <Textarea placeholder="Tell us more about your needs..." {...field} />
                 </FormControl>
@@ -125,4 +125,5 @@ export function ContactForm() {
     </Card>
   );
 }
+
 
