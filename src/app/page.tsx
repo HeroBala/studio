@@ -8,10 +8,9 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/co
 import {ContactForm} from '@/components/contact-form';
 import {TitleOptimizerForm} from '@/components/title-optimizer-form';
 import {ContentSummarizer} from '@/components/content-summarizer';
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
-import {CalendarIcon} from 'lucide-react';
 import dynamic from 'next/dynamic';
 import {useInView} from 'react-intersection-observer';
 import TestimonialCard from '@/components/testimonial-card'; // Import TestimonialCard
@@ -103,35 +102,37 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4 text-center">Services Offered</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* AI-Powered Business Strategy Consulting */}
-            <Card className="hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold">AI-Powered Business Strategy Consulting</CardTitle>
-                <CardDescription className="text-gray-500">
-                  Use predictive analytics and AI algorithms to help businesses make informed decisions and drive future growth.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-4">
-                <Image
-                  src="https://picsum.photos/200/150"
-                  alt="AI Consulting"
-                  width={200}
-                  height={150}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-gray-500 mb-2">
-                  We leverage AI to analyze market trends and provide strategic recommendations.
-                </p>
-                <div className="star-rating">
-                  {renderStars(4)}
-                </div>
+            <Card className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold">AI-Powered Business Strategy Consulting</CardTitle>
+                  <CardDescription className="text-gray-500">
+                    Use predictive analytics and AI algorithms to help businesses make informed decisions and drive future growth.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-4">
+                  <Image
+                    src="https://picsum.photos/200/150"
+                    alt="AI Consulting"
+                    width={200}
+                    height={150}
+                    className="rounded-md mb-2"
+                  />
+                  <p className="text-sm text-gray-500 mb-2">
+                    We leverage AI to analyze market trends and provide strategic recommendations.
+                  </p>
+                  <div className="star-rating">
+                    {renderStars(4)}
+                  </div>
+                </CardContent>
+                <CardContent className="p-4 flex justify-end">
                   <Button asChild>
                     <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
                   </Button>
-              </CardContent>
+                </CardContent>
             </Card>
 
             {/* Data Analytics and Reporting */}
-            <Card className="hover:shadow-xl transition-shadow duration-300">
+            <Card className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">Data Analytics and Reporting</CardTitle>
                 <CardDescription className="text-gray-500">
@@ -153,14 +154,16 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
-                  <Button asChild>
-                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                  </Button>
+              </CardContent>
+              <CardContent className="p-4 flex justify-end">
+                <Button asChild>
+                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* AI-Driven Marketing Solutions */}
-            <Card className="hover:shadow-xl transition-shadow duration-300">
+            <Card className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">AI-Driven Marketing Solutions</CardTitle>
                 <CardDescription className="text-gray-500">
@@ -182,14 +185,16 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(3)}
                 </div>
-                  <Button asChild>
-                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                  </Button>
+              </CardContent>
+              <CardContent className="p-4 flex justify-end">
+                <Button asChild>
+                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* AI Solutions for Process Automation */}
-            <Card className="hover:shadow-xl transition-shadow duration-300">
+            <Card className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">AI Solutions for Process Automation</CardTitle>
                 <CardDescription className="text-gray-500">
@@ -210,14 +215,16 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(4)}
                 </div>
-                  <Button asChild>
-                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                  </Button>
+              </CardContent>
+              <CardContent className="p-4 flex justify-end">
+                <Button asChild>
+                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                </Button>
               </CardContent>
             </Card>
 
             {/* Customized AI Solutions for Businesses */}
-            <Card className="hover:shadow-xl transition-shadow duration-300">
+            <Card className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">Customized AI Solutions for Businesses</CardTitle>
                 <CardDescription className="text-gray-500">Create and implement AI models tailored to your client's specific industry needs.</CardDescription>
@@ -236,9 +243,11 @@ export default function Home() {
                 <div className="star-rating">
                   {renderStars(5)}
                 </div>
-                  <Button asChild>
-                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                  </Button>
+              </CardContent>
+              <CardContent className="p-4 flex justify-end">
+                <Button asChild>
+                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                </Button>
               </CardContent>
             </Card>
           </div>
