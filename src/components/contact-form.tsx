@@ -13,6 +13,7 @@ import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, Form
 import {getSuggestedFields, type ContactFormSubmission} from '@/services/contact-form';
 import {useToast} from '@/hooks/use-toast';
 import {cn} from "@/lib/utils";
+import {Card, CardContent} from "@/components/ui/card";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -69,54 +70,59 @@ export function ContactForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 animate-fade-in">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({field}) => (
-            <FormItem className="animate-slide-in-left">
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Your name" {...field} />
-              </FormControl>
-              <FormDescription>What do you want us to call you?</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({field}) => (
-            <FormItem className="animate-slide-in-right">
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="example@example.com" type="email" {...field} />
-              </FormControl>
-              <FormDescription>How can we reach you?</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({field}) => (
-            <FormItem className="animate-slide-in-bottom">
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea placeholder="Tell us more about your needs..." {...field} />
-              </FormControl>
-              <FormDescription>What do you want to tell us?</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top">
-          {isSuggestionLoading ? 'Loading...' : 'Submit'}
-        </Button>
-      </form>
-    </Form>
+    <Card>
+      <CardContent className="p-8">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 animate-fade-in">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({field}) => (
+              <FormItem className="animate-slide-in-left">
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your name" {...field} />
+                </FormControl>
+                <FormDescription>What do you want us to call you?</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({field}) => (
+              <FormItem className="animate-slide-in-right">
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="example@example.com" type="email" {...field} />
+                </FormControl>
+                <FormDescription>How can we reach you?</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="message"
+            render={({field}) => (
+              <FormItem className="animate-slide-in-bottom">
+                <FormLabel>Message</FormLabel>
+                <FormControl>
+                  <Textarea placeholder="Tell us more about your needs..." {...field} />
+                </FormControl>
+                <FormDescription>What do you want to tell us?</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" disabled={isSuggestionLoading} className="animate-slide-in-top">
+            {isSuggestionLoading ? 'Loading...' : 'Submit'}
+          </Button>
+        </form>
+      </Form>
+      </CardContent>
+    </Card>
   );
 }
+
