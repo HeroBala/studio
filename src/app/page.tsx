@@ -8,12 +8,11 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/co
 import {ContactForm} from '@/components/contact-form';
 import {TitleOptimizerForm} from '@/components/title-optimizer-form';
 import {ContentSummarizer} from '@/components/content-summarizer';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
 import dynamic from 'next/dynamic';
 import {useInView} from 'react-intersection-observer';
-import TestimonialCard from '@/components/testimonial-card'; // Import TestimonialCard
 
 const testimonials = [
   {
@@ -45,10 +44,13 @@ export default function Home() {
     triggerOnce: true,
     threshold: 0.1,
   });
-
+  const chatbotRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     // Client-side rendering, safe to use window
     console.log("Client-side rendering");
+    if (chatbotRef.current) {
+      chatbotRef.current.scrollTop = chatbotRef.current.scrollHeight;
+    }
   }, []);
 
   const handleChatbotToggle = () => {
@@ -74,6 +76,15 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
+        {/* AI Suggestion Section */}
+        <section className="text-center mb-8">
+          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
+          <ul className="list-disc list-inside text-lg text-gray-600">
+            {aiSuggestions.map((suggestion, index) => (
+              <li key={index} className="mb-1">{suggestion}</li>
+            ))}
+          </ul>
+        </section>
 
         {/* Hero Section */}
         <section className="text-center mb-8">
@@ -83,15 +94,6 @@ export default function Home() {
             Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making,
             and unlock growth opportunities.
           </p>
-          {/* AI Suggestion Section */}
-          <section className="text-center mb-8">
-            <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
-            <ul className="list-disc list-inside text-lg text-gray-600">
-              {aiSuggestions.map((suggestion, index) => (
-                <li key={index} className="mb-1">{suggestion}</li>
-              ))}
-            </ul>
-          </section>
           <Button size="lg" asChild>
             <Link href="/appointment-booking" prefetch>Start Your AI-Driven Transformation Today</Link>
           </Button>
@@ -103,37 +105,37 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* AI-Powered Business Strategy Consulting */}
             <Card className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
-                <CardHeader>
-                  <CardTitle className="text-xl font-semibold">AI-Powered Business Strategy Consulting</CardTitle>
-                  <CardDescription className="text-gray-500">
-                    Use predictive analytics and AI algorithms to help businesses make informed decisions and drive future growth.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-4">
-                  <Image
-                    src="https://picsum.photos/200/150"
-                    alt="AI Consulting"
-                    width={200}
-                    height={150}
-                    className="rounded-md mb-2"
-                  />
-                  <p className="text-sm text-gray-500 mb-2">
-                    We leverage AI to analyze market trends and provide strategic recommendations.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div className="star-rating">
-                      {renderStars(4)}
-                    </div>
-                    <Button variant="link" asChild>
-                      <Link href="#" prefetch>Learn More</Link>
-                    </Button>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold">AI-Powered Business Strategy Consulting</CardTitle>
+                <CardDescription className="text-gray-500">
+                  Use predictive analytics and AI algorithms to help businesses make informed decisions and drive future growth.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-4">
+                <Image
+                  src="https://picsum.photos/200/150"
+                  alt="AI Consulting"
+                  width={200}
+                  height={150}
+                  className="rounded-md mb-2"
+                />
+                <p className="text-sm text-gray-500 mb-2">
+                  We leverage AI to analyze market trends and provide strategic recommendations.
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="star-rating">
+                    {renderStars(4)}
                   </div>
-                </CardContent>
-                <CardContent className="p-4 flex justify-end">
-                  <Button asChild>
-                    <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                  <Button variant="link" asChild>
+                    <Link href="/services/ai-strategy-consulting" prefetch>Learn More</Link>
                   </Button>
-                </CardContent>
+                </div>
+              </CardContent>
+              <CardContent className="p-4 flex justify-end">
+                <Button asChild>
+                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                </Button>
+              </CardContent>
             </Card>
 
             {/* Data Analytics and Reporting */}
@@ -161,7 +163,7 @@ export default function Home() {
                     {renderStars(5)}
                   </div>
                   <Button variant="link" asChild>
-                    <Link href="#" prefetch>Learn More</Link>
+                    <Link href="/services/data-analytics-reporting" prefetch>Learn More</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -197,7 +199,7 @@ export default function Home() {
                     {renderStars(3)}
                   </div>
                   <Button variant="link" asChild>
-                    <Link href="#" prefetch>Learn More</Link>
+                    <Link href="/services/ai-marketing-solutions" prefetch>Learn More</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -232,7 +234,7 @@ export default function Home() {
                     {renderStars(4)}
                   </div>
                   <Button variant="link" asChild>
-                    <Link href="#" prefetch>Learn More</Link>
+                    <Link href="/services/ai-process-automation" prefetch>Learn More</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -265,7 +267,7 @@ export default function Home() {
                     {renderStars(5)}
                   </div>
                   <Button variant="link" asChild>
-                    <Link href="#" prefetch>Learn More</Link>
+                    <Link href="/services/custom-ai-solutions" prefetch>Learn More</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -337,14 +339,27 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4 text-center">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
             {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                name={testimonial.name}
-                title={testimonial.title}
-                quote={testimonial.quote}
-                rating={testimonial.rating}
-                image={testimonial.image}
-              />
+              <Card key={index} className="bg-white rounded-lg shadow-md p-6">
+                <div className="flex items-center mb-4">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={50}
+                    height={50}
+                    className="rounded-full mr-4"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold">{testimonial.name}</h3>
+                    <p className="text-gray-500 text-sm">{testimonial.title}</p>
+                  </div>
+                </div>
+                <blockquote>
+                  <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
+                </blockquote>
+                <div className="star-rating">
+                  {renderStars(testimonial.rating)}
+                </div>
+              </Card>
             ))}
           </div>
         </section>
@@ -412,13 +427,11 @@ export default function Home() {
         </section>
       </main>
 
-      {showChatbot && <Chatbot />}
-      <div className="fixed bottom-4 right-4 z-40">
-        <Button onClick={handleChatbotToggle}>
-          Ask Bot
-        </Button>
-      </div>
+      {showChatbot && (
+        <div className="fixed bottom-4 right-4 z-40" ref={chatbotRef}>
+          <Chatbot />
+        </div>
+      )}
     </div>
   );
 }
-
