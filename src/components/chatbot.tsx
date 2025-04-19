@@ -2,12 +2,12 @@
 
 import React, {useState, useEffect, useRef} from 'react';
 import {Button} from '@/components/ui/button';
-import {trainChatbot} from '@/ai/flows/train-chatbot-flow';
+//import {trainChatbot} from '@/ai/flows/train-chatbot-flow';
 
 const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState('');
-  const [isTraining, setIsTraining] = useState(false);
+  //const [isTraining, setIsTraining] = useState(false);
   const chatboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,22 +34,28 @@ const Chatbot: React.FC = () => {
     }
   };
 
-  const handleTrainChatbot = async () => {
-    setIsTraining(true);
-    try {
-      // Replace with your actual webpage URL
-      const trainingResult = await trainChatbot({webpageUrl: 'https://ai-insight-hub.web.app/'});
-      setMessages(prevMessages => [...prevMessages, `AI: Training initiated...`]);
-      if (trainingResult.success) {
-        setMessages(prevMessages => [...prevMessages, `AI: Chatbot trained successfully. ${trainingResult.message}`]);
-      } else {
-        setMessages(prevMessages => [...prevMessages, `AI: Chatbot training failed: ${trainingResult.message}`]);
-      }
-    } catch (error: any) {
-      console.error('Error training chatbot:', error);
-      setMessages(prevMessages => [...prevMessages, `AI: Error training chatbot: ${error.message}`]);
-    } finally {
-      setIsTraining(false);
+  //const handleTrainChatbot = async () => {
+  //  setIsTraining(true);
+  //  try {
+  //    // Replace with your actual webpage URL
+  //    const trainingResult = await trainChatbot({webpageUrl: 'https://ai-insight-hub.web.app/'});
+  //    setMessages(prevMessages => [...prevMessages, `AI: Training initiated...`]);
+  //    if (trainingResult.success) {
+  //      setMessages(prevMessages => [...prevMessages, `AI: Chatbot trained successfully. ${trainingResult.message}`]);
+  //    } else {
+  //      setMessages(prevMessages => [...prevMessages, `AI: Chatbot training failed: ${trainingResult.message}`]);
+  //    }
+  //  } catch (error: any) {
+  //    console.error('Error training chatbot:', error);
+  //    setMessages(prevMessages => [...prevMessages, `AI: Error training chatbot: ${error.message}`]);
+  //  } finally {
+  //    setIsTraining(false);
+  //  }
+  //};
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
     }
   };
 
@@ -74,6 +80,7 @@ const Chatbot: React.FC = () => {
               placeholder="Type your message..."
               value={input}
               onChange={handleInputChange}
+              onKeyDown={handleInputKeyDown}
             />
             <Button
               className="bg-primary text-primary-foreground rounded-r-md p-2 hover:bg-primary/80 text-sm"
@@ -82,13 +89,13 @@ const Chatbot: React.FC = () => {
               Send
             </Button>
           </div>
-          <Button
+          {/*<Button
             onClick={handleTrainChatbot}
             disabled={isTraining}
             className="w-full"
           >
             {isTraining ? 'Training...' : 'Train Chatbot'}
-          </Button>
+          </Button>*/}
         </div>
       </div>
     </div>
