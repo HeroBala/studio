@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Calendar} from '@/components/ui/calendar';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
@@ -21,6 +21,7 @@ import {useRouter} from 'next/navigation';
 import {ArrowLeft} from "lucide-react";
 import Link from 'next/link';
 import {format} from "date-fns";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
 const bookingSchema = z.object({
   name: z.string().min(2, {
@@ -35,9 +36,23 @@ const bookingSchema = z.object({
   message: z.string().optional(),
 });
 
+// Helper function to generate time slots
+const generateTimeSlots = () => {
+  const slots = [];
+  let hour = 9;
+  while (hour < 17) {
+    const time = format(new Date(0, 0, 0, hour), 'h:00 a');
+    slots.push(time);
+    hour++;
+  }
+  return slots;
+};
+
 const AppointmentBookingPage: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [selectedTime, setSelectedTime] = useState<string | undefined>(undefined);
   const router = useRouter();
+  const timeSlots = generateTimeSlots();
 
   const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
@@ -47,11 +62,18 @@ const AppointmentBookingPage: React.FC = () => {
       phone: "",
       message: "",
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof bookingSchema>) {
-    console.log(values)
+    console.log({...values, date: selectedDate, time: selectedTime});
   }
+
+  // Function to disable past dates
+  const disabledBefore = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
 
   return (
     <div className="container mx-auto py-12">
@@ -72,9 +94,7 @@ const AppointmentBookingPage: React.FC = () => {
             selected={selectedDate}
             onSelect={setSelectedDate}
             className="rounded-md border"
-            modifiers={{
-              disabled: { before: new Date() },
-            }}
+            disabled={disabledBefore}
           />
           {selectedDate && (
             <p className="mt-4">Selected Date: {selectedDate.toLocaleDateString()}</p>
@@ -89,46 +109,70 @@ const AppointmentBookingPage: React.FC = () => {
               <FormField
                 control={form.control}
                 name="name"
-                render={({ field }) => (
+                render={({field}) => (
                   <FormItem className="animate-slide-in-left">
                     <FormLabel>Name</FormLabel>
                     <FormControl>
                       <Input placeholder="Your name" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage/>
                   </FormItem>
                 )}
               />
               <FormField
                 control={form.control}
                 name="email"
-                render={({ field }) => (
+                render={({field}) => (
                   <FormItem className="animate-slide-in-right">
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input placeholder="example@example.com" type="email" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage/>
                   </FormItem>
                 )}
               />
               <FormField
                 control={form.control}
                 name="phone"
-                render={({ field }) => (
+                render={({field}) => (
                   <FormItem className="animate-slide-in-bottom">
                     <FormLabel>Phone Number</FormLabel>
                     <FormControl>
                       <Input placeholder="123-456-7890" type="tel" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage/>
                   </FormItem>
                 )}
               />
+              {selectedDate && (
+                <FormField
+                  control={form.control}
+                  name="time"
+                  render={() => (
+                    <FormItem>
+                      <FormLabel>Select Time</FormLabel>
+                      <Select onValueChange={setSelectedTime}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a time slot"/>
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {timeSlots.map((time) => (
+                            <SelectItem key={time} value={time}>{time}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage/>
+                    </FormItem>
+                  )}
+                />
+              )}
               <FormField
                 control={form.control}
                 name="message"
-                render={({ field }) => (
+                render={({field}) => (
                   <FormItem className="animate-slide-in-bottom">
                     <FormLabel>Message (Optional)</FormLabel>
                     <FormControl>
@@ -138,11 +182,11 @@ const AppointmentBookingPage: React.FC = () => {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage/>
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full animate-slide-in-top">
+              <Button type="submit" className="w-full animate-slide-in-top" disabled={!selectedDate || !selectedTime}>
                 Book Appointment
               </Button>
             </form>
