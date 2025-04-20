@@ -5,15 +5,15 @@ import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {ContactForm} from '@/components/contact-form';
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState} from 'react';
 import {Navbar} from '@/components/navbar';
 import TestimonialCard from '@/components/testimonial-card';
 import {CalendarIcon, ArrowRight} from "lucide-react";
 import {cn} from "@/lib/utils";
-import {useInView} from 'react-intersection-observer';
 import GoogleMapComponent from "@/components/google-map";
 import {Badge} from "@/components/ui/badge";
 import {formatDistanceToNow, nextSunday, set, isSunday, addDays} from 'date-fns';
+import {useRouter} from "next/navigation";
 
 const testimonials = [
   {
@@ -56,6 +56,7 @@ const renderStars = (rating: number) => {
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState('AI-Driven Solutions and Data Analytics');
+  const router = useRouter();
 
   const handleSectionChange = (sectionName: string) => {
     setCurrentSection(sectionName);
@@ -91,6 +92,9 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleQuizRegisterClick = () => {
+    router.push('/quiz-registration');
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -107,7 +111,7 @@ export default function Home() {
           </p>
           <p className="text-sm text-muted-foreground mb-4">Time Remaining: {timeRemaining}</p>
           <div className="flex justify-center">
-            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/80 pulse">
+            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/80 pulse" onClick={handleQuizRegisterClick}>
               <Link href="/quiz-page" prefetch className="flex items-center gap-1">
                 Register for Our Weekly AI Quiz in Utopia, Brno!
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
@@ -494,4 +498,3 @@ export default function Home() {
     </div>
   );
 }
-
