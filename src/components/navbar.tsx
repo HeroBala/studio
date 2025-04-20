@@ -15,10 +15,10 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
   useEffect(() => {
     const fetchSuggestedLinks = async () => {
       try {
-          setSuggestedLinks(['Home', 'Services', 'About', 'Appointment Booking', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'Appointment Booking', 'Contact Us']);
       } catch (error) {
         console.error('Error fetching optimized links:', error);
-        setSuggestedLinks(['Home', 'Services', 'About', 'Appointment Booking', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'Appointment Booking', 'Contact Us']);
       }
     };
 
@@ -42,8 +42,9 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
               href = '/contact';
             }
             return (
-              <Link key={link} href={href} className="hover:text-accent-foreground transition-colors duration-200" prefetch>
+              <Link key={link} href={href} className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
                 {link}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
               </Link>
             );
           })}
@@ -58,3 +59,4 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
+
