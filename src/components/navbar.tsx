@@ -15,10 +15,10 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
   useEffect(() => {
     const fetchSuggestedLinks = async () => {
       try {
-        setSuggestedLinks(['Home', 'Services', 'Appointment Booking', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'Appointment', 'Contact Us']);
       } catch (error) {
         console.error('Error fetching optimized links:', error);
-        setSuggestedLinks(['Home', 'Services', 'Appointment Booking', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'Appointment', 'Contact Us']);
       }
     };
 
@@ -32,11 +32,11 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
-          {['Home', 'Services', 'Appointment Booking'].map(link => {
+          {['Home', 'Services', 'Appointment'].map(link => {
             let href = '/';
             if (link.toLowerCase() === 'services') {
               href = '/services';
-            } else if (link.toLowerCase() === 'appointment booking') {
+            } else if (link.toLowerCase() === 'appointment') {
               href = '/appointment-booking';
             } else if (link.toLowerCase() === 'contact') {
               href = '/contact';
