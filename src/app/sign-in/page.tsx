@@ -6,9 +6,8 @@ import {ArrowLeft} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
-import {cn} from '@/lib/utils';
 
-const MembershipPage = () => {
+const SignInPage = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -24,9 +23,9 @@ const MembershipPage = () => {
         </Link>
       </div>
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-semibold text-center mb-6">Join Our Membership Today</h1>
+        <h1 className="text-3xl font-semibold text-center mb-6">Sign In</h1>
         <p className="text-lg text-muted-foreground text-center mb-8">
-          Sign up to gain access to exclusive content, services, and personalized AI-driven solutions.
+          Sign in to access exclusive content, services, and personalized AI-driven solutions.
         </p>
         <div className="space-y-6">
           <div>
@@ -47,7 +46,7 @@ const MembershipPage = () => {
                 variant="ghost"
                 size="icon"
                 onClick={togglePasswordVisibility}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 hover:bg-accent/80"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 hover:bg-primary/80"
               >
                 {showPassword ? (
                   <span className="text-gray-500">Hide</span>
@@ -57,35 +56,17 @@ const MembershipPage = () => {
               </Button>
             </div>
           </div>
-          <div>
-            <Label htmlFor="confirmPassword" className="text-lg font-semibold text-foreground">Confirm Password</Label>
-            <Input
-              type="password"
-              id="confirmPassword"
-              placeholder="Re-enter password"
-              required
-              className="mt-2"
-            />
-          </div>
-          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Sign Up</Button>
+          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Sign In</Button>
           <div className="text-center">
             <Link href="/" className="hover:underline text-muted-foreground">Back to Home</Link>
           </div>
           <div className="text-center">
-            Already a member? <Link href="/sign-in" className="hover:underline text-accent">Sign In</Link>
+            Not a member? <Link href="/membership" className="hover:underline text-accent">Join Now</Link>
           </div>
-        </div>
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-center">Membership Benefits</h2>
-          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-            <li>Exclusive access to AI-driven tools and resources</li>
-            <li>Personalized insights and recommendations</li>
-            <li>Priority access to events, like the weekly AI Quiz or other special content.</li>
-          </ul>
         </div>
       </div>
     </div>
   );
 };
 
-export default MembershipPage;
+export default SignInPage;
