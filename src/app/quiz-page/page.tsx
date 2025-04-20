@@ -259,17 +259,14 @@ const QuizPage = () => {
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
 
       {!selectedCategory ? (
-        <div className="text-lg text-gray-600 mb-6 text-center">
-          <p className="mb-4">Select a category to start the quiz!</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {quizCategories.map((category) => (
-              <Button key={category} onClick={() => handleCategorySelect(category)}
-                className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
+       <div className="text-lg text-gray-600 mb-6 text-center">
+          <p className="mb-4">Ready to Compete in All Categories?</p>
+          <Button
+            onClick={() => handleCategorySelect('All Categories')}
+            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
+          >
+            Start the Ultimate Quiz Challenge!
+          </Button>
         </div>
       ) : !quizCompleted ? (
         <div>
