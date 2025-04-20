@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import {Button} from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function NotFound() {
   const router = useRouter();
@@ -62,7 +64,14 @@ export default function NotFound() {
           {feedbackMessage}
         </div>
       )}
+       <div className="flex justify-start mt-8">
+        <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
+          <ArrowLeft className="h-5 w-5"/>
+          Back to Home
+        </Link>
+      </div>
     </div>
   );
 }
+
 
