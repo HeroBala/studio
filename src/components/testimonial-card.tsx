@@ -34,7 +34,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full">
+    <div className="bg-white rounded-lg shadow-md p-6 flex flex-col h-96">
       <div className="flex items-center mb-4">
         <Image
           src={image}
@@ -59,3 +59,4 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 };
 
 export default TestimonialCard;
+

@@ -44,7 +44,7 @@ const Chatbot: React.FC = () => {
     setIsOpen(true);
   };
 
-    const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
@@ -54,7 +54,7 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chatbot Icon - Always Visible */}
       <div className="fixed bottom-4 right-4 z-50">
-        <Button variant="secondary" onClick={handleOpenChatbot} aria-label="Open Chatbot" className="flex items-center gap-2">
+        <Button variant="secondary" onClick={handleOpenChatbot} aria-label="Open Chatbot" className="flex items-center gap-2 shadow-md">
           <MessageSquare className="h-5 w-5"/>
           Your Bot
         </Button>
@@ -62,7 +62,7 @@ const Chatbot: React.FC = () => {
 
       {/* Chatbot Overlay - Visible when isOpen is true */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 w-72 bg-card border rounded-lg shadow-lg flex flex-col h-96 z-50">
+        <div className="fixed bottom-16 right-4 w-72 bg-card border rounded-lg shadow-lg flex flex-col h-96 z-50 animate-fade-in">
           <div className="p-4 border-b flex items-center justify-between bg-secondary text-secondary-foreground">
             <h3 className="text-lg font-semibold">Your Bot</h3>
             <Button variant="ghost" size="icon" onClick={handleCloseChatbot} aria-label="Close Chatbot">
@@ -107,3 +107,4 @@ const Chatbot: React.FC = () => {
 };
 
 export default Chatbot;
+
