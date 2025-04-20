@@ -204,12 +204,8 @@ const QuizPage = () => {
       <section className="text-center mb-8">
         <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle at Utopia!</h2>
         {/* Replace the paragraph and button with the following */}
-        <Button
-            onClick={() => handleCategorySelect('All Categories')}
-            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
-          >
-            Start the Challenge
-          </Button>
+        
+
         
                 {/* Last Time Winner Section */}
         <section className="mb-8">
