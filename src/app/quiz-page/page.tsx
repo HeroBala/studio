@@ -203,9 +203,13 @@ const QuizPage = () => {
       {/* New Section for Quiz Night at Utopia */}
       <section className="text-center mb-8">
         <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle at Utopia!</h2>
-        <p className="text-lg text-gray-600 mb-4">
-          Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night!
-        </p>
+        {/* Replace the paragraph and button with the following */}
+        <Button
+            onClick={() => handleCategorySelect('All Categories')}
+            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
+          >
+            Start the Challenge
+          </Button>
         
                 {/* Last Time Winner Section */}
         <section className="mb-8">
