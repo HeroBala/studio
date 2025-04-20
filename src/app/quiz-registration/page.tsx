@@ -66,7 +66,7 @@ const QuizRegistrationPage = () => {
                 <CardDescription>Members: {team.members.join(', ')}
                 Team Size: {team.memberCount}</CardDescription>
               </CardHeader>
-               <Image src={team.image} alt={team.name} className="w-full h-32 object-cover rounded-md mb-4"/>
+               <Image src={team.image} alt={team.name} className="w-full h-32 object-cover rounded-md mb-4" width={200} height={150}/>
                 <CardContent>
                    <Button className="mt-4">Join Team</Button>
                 </CardContent>
