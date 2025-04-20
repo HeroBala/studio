@@ -44,10 +44,6 @@ const Chatbot: React.FC = () => {
     }
   };
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
     <div className="fixed bottom-4 right-4 w-64 bg-card border rounded-lg shadow-lg flex flex-col h-96 z-50">
       <div className="p-4 border-b flex items-center justify-between bg-secondary text-secondary-foreground">
