@@ -125,6 +125,36 @@ const QuizPage = () => {
       description: 'A variety of teas to quench your thirst.',
       image: '/images/tea.jpg',
     },
+     {
+      name: 'Cold Tea',
+      description: 'Selection of cold teas to quench your thirst.',
+      image: '/images/cold_tea.jpg',
+    },
+     {
+      name: 'Hookah',
+      description: 'Selection of hookah to make more fun.',
+      image: '/images/hookah.jpg',
+    },
+     {
+      name: 'Food',
+      description: 'Selection of foods to make more hunger to make it easier to win.',
+      image: '/images/foods.jpg',
+    },
+     {
+      name: 'Non alcoholic',
+      description: 'Selection of non alcoholic for health.',
+      image: '/images/non_alcholic.jpg',
+    },
+      {
+      name: 'Pool',
+      description: 'selection of pool.',
+      image: '/images/pool.jpg',
+    },
+      {
+      name: 'Chess',
+      description: 'selection of Chess.',
+      image: '/images/chess.jpg',
+    },
   ];
 
   const handleRegisterClick = () => {
