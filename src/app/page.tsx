@@ -281,6 +281,40 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+            {/* AI-Enhanced Cybersecurity Solutions */}
+            <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="text-2xl font-semibold leading-none tracking-tight">AI-Enhanced Cybersecurity Solutions</div>
+                <div className="text-sm text-muted-foreground">Protect your business with our AI-driven cybersecurity solutions that detect and prevent threats in real-time.</div>
+              </div>
+              <div className="p-6 pt-0">
+                <Image
+                  src="https://picsum.photos/205/150"
+                  alt="AI Cybersecurity"
+                  width={200}
+                  height={150}
+                  style={{objectFit: 'cover'}}
+                  className="rounded-md mb-2"
+                />
+                <p className="text-sm text-muted-foreground mb-2">Secure your digital assets with our advanced AI-powered protection.</p>
+                <div className="flex items-center justify-between">
+                  <div className="star-rating">
+                    {renderStars(4)}
+                    <span className="ml-1">4.5</span>
+                  </div>
+                  <Button variant="link" asChild>
+                    <Link href="/services/ai-cybersecurity-solutions" prefetch>
+                      Learn More
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="p-6 flex justify-end">
+                <Button asChild>
+                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -398,6 +432,19 @@ export default function Home() {
               <h3 className="text-xl font-semibold">Sarah Green</h3>
               <p className="text-gray-500">Data Analyst</p>
               <p className="text-gray-600">Sarah provides expertise in data analysis and reporting, delivering actionable insights to clients.</p>
+            </div>
+             {/* Team Member 7 */}
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/106/100"
+                alt="Bob Williams"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">Bob Williams</h3>
+              <p className="text-gray-500">Cybersecurity Expert</p>
+              <p className="text-gray-600">Bob specializes in AI-enhanced cybersecurity solutions, protecting businesses from advanced digital threats.</p>
             </div>
           </div>
         </section>
