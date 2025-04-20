@@ -4,6 +4,14 @@ import React from 'react';
 import Link from 'next/link';
 import {ArrowLeft} from 'lucide-react';
 import {Button} from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import Image from "next/image";
 
 const teamData = [
   {
@@ -12,7 +20,6 @@ const teamData = [
     members: ['Alice', 'Bob', 'Charlie'],
     memberCount: 3,
     image: 'https://picsum.photos/id/237/200/150',
-    rating: 4.5,
   },
   {
     id: 2,
@@ -20,7 +27,6 @@ const teamData = [
     members: ['Diana', 'Eve', 'Frank'],
     memberCount: 3,
     image: 'https://picsum.photos/id/238/200/150',
-    rating: 4.8,
   },
   {
     id: 3,
@@ -28,7 +34,6 @@ const teamData = [
     members: ['Grace', 'Henry', 'Ivy'],
     memberCount: 3,
     image: 'https://picsum.photos/id/239/200/150',
-    rating: 4.2,
   },
   {
     id: 4,
@@ -36,7 +41,6 @@ const teamData = [
     members: ['Jack', 'Kelly'],
     memberCount: 2,
     image: 'https://picsum.photos/id/240/200/150',
-    rating: 4.9,
   },
 ];
 
@@ -56,13 +60,17 @@ const QuizRegistrationPage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {teamData.map((team) => (
-          <div key={team.id} className="border rounded-lg p-4">
-            <img src={team.image} alt={team.name} className="w-full h-32 object-cover rounded-md mb-4"/>
-            <h3 className="text-xl font-semibold mb-2">{team.name}</h3>
-            <p className="text-gray-500">Members: {team.members.join(', ')}</p>
-            <p className="text-gray-500">Team Size: {team.memberCount}</p>
-            <Button className="mt-4">Join Team</Button>
-          </div>
+           <Card key={team.id} className="border rounded-lg p-4">
+             <CardHeader>
+                <CardTitle>{team.name}</CardTitle>
+                <CardDescription>Members: {team.members.join(', ')}
+                Team Size: {team.memberCount}</CardDescription>
+              </CardHeader>
+               <Image src={team.image} alt={team.name} className="w-full h-32 object-cover rounded-md mb-4"/>
+                <CardContent>
+                   <Button className="mt-4">Join Team</Button>
+                </CardContent>
+            </Card>
         ))}
       </div>
     </div>
