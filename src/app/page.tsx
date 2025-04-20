@@ -12,6 +12,8 @@ import {CalendarIcon, ArrowRight} from "lucide-react";
 import {cn} from "@/lib/utils";
 import {useInView} from 'react-intersection-observer';
 import GoogleMapComponent from "@/components/google-map";
+import {Badge} from "@/components/ui/badge";
+import {formatDistanceToNow} from 'date-fns';
 
 const testimonials = [
   {
@@ -59,19 +61,35 @@ export default function Home() {
     setCurrentSection(sectionName);
   };
 
+   const quizDate = new Date(2024, 7, 7, 19, 0, 0); // August 7, 2024, 7:00 PM (Sunday)
+  const [timeRemaining, setTimeRemaining] = useState('');
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const timeDiff = formatDistanceToNow(quizDate, {addSuffix: true});
+      setTimeRemaining(timeDiff);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [quizDate]);
+
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
-        <section className="mb-8 text-center">
+        <section className="mb-8 text-center bg-secondary rounded-lg p-6 relative">
+           <Badge className="absolute top-2 right-2">Limited Time Offer</Badge>
           <h2 className="text-3xl font-semibold mb-4">
-          Sunday Funday in Brno!
+            Sunday Funday in Brno!
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-          Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night! Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable! See you there!          </p>
+            Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night! Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable!
+          </p>
+          <p className="text-sm text-muted-foreground mb-4">Time Remaining: {timeRemaining}</p>
           <div className="flex justify-center">
-            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse">
+            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/80 pulse">
               <Link href="/quiz-page" prefetch className="flex items-center gap-1">
                 Register for Our Weekly AI Quiz in Utopia, Brno!
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
@@ -458,4 +476,3 @@ export default function Home() {
     </div>
   );
 }
-
