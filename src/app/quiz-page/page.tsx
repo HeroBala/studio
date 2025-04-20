@@ -6,17 +6,18 @@ import {ArrowLeft} from 'lucide-react';
 import {Button} from "@/components/ui/button";
 import {CalendarIcon} from "lucide-react";
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 // Define quiz categories
 const quizCategories = [
-  'Analytics',
-  'Math',
-  'Science',
+  'AI & Analytics',
+  'Mathematics',
+  'Science & Technology',
   'General Knowledge',
-  'History',
-  'Technology',
+  'History & Culture',
   'Geography',
   'Entertainment',
+  'Sports',
 ];
 
 // Mock function to fetch quiz questions from a CMS (replace with actual CMS fetch)
@@ -91,35 +92,37 @@ const QuizPage = () => {
     setQuizCompleted(true);
   };
 
-  const calculateScore = () => {
-    let correctAnswersCount = 0;
-    questions.forEach((question, index) => {
-      if (userAnswers[index] === question.correctAnswer) {
-        correctAnswersCount++;
-      }
-    });
-    return (correctAnswersCount / questions.length) * 100;
-  };
-
    const handleRegisterClick = () => {
         router.push('/quiz-registration');
     };
 
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-12" style={{ backgroundImage: `url('/images/brno-quiz-bg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <div className="flex justify-between items-center mb-8">
         <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
           <ArrowLeft className="h-5 w-5"/>
           Back to Home
         </Link>
-         <Button
-                    className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse"
-                    onClick={handleRegisterClick}
-                >
-                    Register for Weekly AI Trivia
-                    <CalendarIcon className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
-                </Button>
       </div>
+
+      {/* New Section for Quiz Night at Utopia */}
+      <section className="text-center mb-8">
+        <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle at Utopia!</h2>
+        <p className="text-lg text-gray-600 mb-4">
+          Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night!
+        </p>
+        <Image
+            src="/images/utopia-brno.jpg"
+            alt="Utopia Brno"
+            width={800}
+            height={400}
+            className="rounded-md mx-auto mb-4"
+          />
+        <p className="text-gray-700">
+          Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable!
+        </p>
+      </section>
+
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
 
       {!selectedCategory ? (
@@ -127,7 +130,9 @@ const QuizPage = () => {
           <p className="mb-4">Select a category to start the quiz!</p>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {quizCategories.map((category) => (
-              <Button key={category} onClick={() => handleCategorySelect(category)}>
+              <Button key={category} onClick={() => handleCategorySelect(category)}
+                className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
+              >
                 {category}
               </Button>
             ))}
@@ -146,13 +151,14 @@ const QuizPage = () => {
                     variant={userAnswers[currentQuestionIndex] === option ? 'secondary' : 'outline'}
                     onClick={() => handleAnswerSelect(option)}
                     disabled={userAnswers[currentQuestionIndex] !== undefined}
+                    className="transition-colors duration-300"
                   >
                     {option}
                   </Button>
                 ))}
               </div>
               <Button
-                className="mt-4"
+                className="mt-4 transition-colors duration-300 bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent"
                 onClick={handleNextQuestion}
                 disabled={userAnswers[currentQuestionIndex] === undefined}
               >
@@ -188,7 +194,9 @@ const QuizPage = () => {
               </li>
             ))}
           </ul>
-          <Button onClick={() => setSelectedCategory(null)}>
+          <Button onClick={() => setSelectedCategory(null)}
+            className="transition-colors duration-300 bg-secondary text-secondary-foreground hover:bg-secondary/80"
+          >
             Play Again
           </Button>
         </div>

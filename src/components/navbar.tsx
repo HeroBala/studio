@@ -12,7 +12,7 @@ interface NavbarProps {
   onSectionChange?: (section: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChange}) => {
+export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink = "/appointment-booking", onSectionChange}) => {
   const [suggestedLinks, setSuggestedLinks] = useState<string[]>([]);
   const router = useRouter();
   const titleRef = useRef<HTMLSpanElement>(null);
@@ -82,3 +82,4 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
     </nav>
   );
 };
+
