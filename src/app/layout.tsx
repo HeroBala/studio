@@ -3,7 +3,7 @@
 import type {Metadata} from 'next';
 import {Geist, Geist_Mono} from 'next/font/google';
 import './globals.css';
-import {Footer} from "@/components/footer";
+import Footer from "@/components/footer";
 import {metadata} from './metadata';
 
 const geistSans = Geist({
@@ -15,8 +15,6 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
-
-export {metadata};
 
 export default function RootLayout({
   children,
