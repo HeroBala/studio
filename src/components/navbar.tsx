@@ -82,4 +82,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink = "/appointmen
     </nav>
   );
 };
-

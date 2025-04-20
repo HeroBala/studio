@@ -5,3 +5,4 @@ export const metadata: Metadata = {
   description: 'Empower Your Business with AI-Driven Solutions and Data Analytics',
 };
 
+
