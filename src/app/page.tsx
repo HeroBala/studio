@@ -18,6 +18,7 @@ import {
   Settings,
   Users,
   BookOpenCheck,
+  ArrowRight,
 } from 'lucide-react';
 
 const testimonials = [
@@ -422,5 +423,4 @@ export default function Home() {
     </div>
   );
 }
-
 
