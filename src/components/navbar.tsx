@@ -7,9 +7,10 @@ import {ArrowRight} from "lucide-react";
 
 interface NavbarProps {
   aiConsultationLink?: string;
+  onSectionChange?: (section: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
+export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChange}) => {
   const [suggestedLinks, setSuggestedLinks] = useState<string[]>([]);
 
   useEffect(() => {
@@ -32,19 +33,19 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
-          <Link key="Home" href="/" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+          <Link key="Home" href="/" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('AI-Driven Solutions and Data Analytics') : null}>
             Home
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-          <Link key="Services" href="#services" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+          <Link key="Services" href="#services" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('Services Offered') : null}>
             Services
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-          <Link key="Appointment" href="/appointment-booking" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+          <Link key="Appointment" href="/appointment-booking" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('Appointment Booking') : null}>
             Appointment
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-           <Link key="Contact" href="/#contact" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+           <Link key="Contact" href="/#contact" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('Contact Us') : null}>
             Contact
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
@@ -59,4 +60,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
-

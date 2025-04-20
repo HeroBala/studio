@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {ContactForm} from '@/components/contact-form';
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState} from 'react';
 import {Navbar} from '@/components/navbar';
 import TestimonialCard from '@/components/testimonial-card';
 import {CalendarIcon} from "lucide-react";
@@ -17,21 +17,21 @@ const testimonials = [
     title: 'CEO, Acme Co.',
     quote: 'AI Insight Hub has transformed our business strategy with actionable insights!',
     rating: 5,
-    image: 'https://picsum.photos/50/50',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocI_VzwbRDThv6VNN2jDyJru4ZECjIFZ6XUPe26W=w256-h256-k-no',
   },
   {
     name: 'John Smith',
     title: 'Marketing Manager, Beta Corp',
     quote: 'Their AI-driven marketing solutions have significantly increased our ROI.',
     rating: 4,
-    image: 'https://picsum.photos/51/50',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocJ92F-ZtD_RlWTnKk-iaaR9eU0DcYwrW_1E8a7E=w256-h256-k-no',
   },
   {
     name: 'Emily Johnson',
     title: 'Data Analyst, Gamma Inc.',
     quote: 'The data analytics and reporting services are top-notch and very insightful.',
     rating: 5,
-    image: 'https://picsum.photos/52/50',
+    image: 'https://lh3.googleusercontent.com/a/ACg8ocI1gYvJ59wO1_v9n62W9O6d9wLMWK-PzB-yE02p=w256-h256-k-no',
   },
 ];
 
@@ -51,13 +51,19 @@ const renderStars = (rating: number) => {
 };
 
 export default function Home() {
+  const [currentSection, setCurrentSection] = useState('AI-Driven Solutions and Data Analytics');
+
+  const handleSectionChange = (sectionName: string) => {
+    setCurrentSection(sectionName);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar aiConsultationLink="/appointment-booking"/>
+      <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Hero Section */}
         <section className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
+          <h1 className="text-3xl font-semibold mb-4">{currentSection}</h1>
           <p className="text-lg text-muted-foreground mb-8">Welcome to AI Insight Hub, where cutting-edge AI technology meets data analytics to deliver smart solutions and actionable insights. Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making, and unlock growth opportunities.</p>
           {/* AI-Powered Business Insights */}
           <div className="text-left md:text-center">
@@ -303,4 +309,3 @@ export default function Home() {
     </div>
   );
 }
-
