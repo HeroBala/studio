@@ -47,7 +47,7 @@ const MembershipPage = () => {
                 variant="ghost"
                 size="icon"
                 onClick={togglePasswordVisibility}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 hover:bg-primary/80"
               >
                 {showPassword ? (
                   <span className="text-gray-500">Hide</span>
@@ -70,6 +70,9 @@ const MembershipPage = () => {
           <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Sign Up</Button>
           <div className="text-center">
             <Link href="/" className="hover:underline text-muted-foreground">Back to Home</Link>
+          </div>
+          <div className="text-center">
+            Already a member? <Link href="/" className="hover:underline text-accent">Sign In</Link>
           </div>
         </div>
         <div className="mt-8">
