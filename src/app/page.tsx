@@ -64,13 +64,20 @@ export default function Home() {
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
         <section className="mb-8 text-center">
-          <h2 className="text-3xl font-semibold mb-4">Discover AI Insight Hub</h2>
-          <Button asChild className="mt-4 group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
-            <Link href="/quiz-page" prefetch className="flex items-center gap-1">
-              Register for Our Weekly AI Quiz in Utopia, Brno!
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
-            </Link>
-          </Button>
+          <h2 className="text-3xl font-semibold mb-4">
+             Dive into AI Trivia Tuesdays!
+          </h2>
+          <p className="text-lg text-muted-foreground mb-4">
+            Test your AI knowledge and win exciting prizes every Tuesday in Utopia, Brno!
+          </p>
+          <div className="flex justify-center">
+            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
+              <Link href="/quiz-page" prefetch className="flex items-center gap-1">
+                Register for Our Weekly AI Quiz in Utopia, Brno!
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
+              </Link>
+            </Button>
+          </div>
         </section>
         {/* Hero Section */}
         <section className="text-center mb-8">
@@ -308,6 +315,47 @@ export default function Home() {
               <AccordionContent>We continuously monitor performance and refine AI models to ensure long-term success and ROI.</AccordionContent>
             </AccordionItem>
           </Accordion>
+        </section>
+
+        {/* Our Team Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-8 text-center">Our Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Placeholder for Team Members */}
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/100/100"
+                alt="Team Member 1"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">John Doe</h3>
+              <p className="text-gray-500">CEO</p>
+            </div>
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/101/100"
+                alt="Team Member 2"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">Jane Smith</h3>
+              <p className="text-gray-500">CTO</p>
+            </div>
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/102/100"
+                alt="Team Member 3"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">Mike Johnson</h3>
+              <p className="text-gray-500">Lead Data Scientist</p>
+            </div>
+          </div>
         </section>
 
         {/* Contact Us Section */}
