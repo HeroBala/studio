@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {ArrowLeft} from 'lucide-react';
 import {Button} from "@/components/ui/button";
 import {CalendarIcon} from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 // Define quiz categories
 const quizCategories = [
@@ -51,6 +52,7 @@ const QuizPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     async function loadQuestions() {
@@ -99,6 +101,10 @@ const QuizPage = () => {
     return (correctAnswersCount / questions.length) * 100;
   };
 
+   const handleRegisterClick = () => {
+        router.push('/quiz-registration');
+    };
+
   return (
     <div className="container mx-auto py-12">
       <div className="flex justify-between items-center mb-8">
@@ -106,12 +112,13 @@ const QuizPage = () => {
           <ArrowLeft className="h-5 w-5"/>
           Back to Home
         </Link>
-        <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
-          <Link href="/appointment-booking" prefetch className="flex items-center gap-1">
-            Register for Weekly AI Quiz
-            <CalendarIcon className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
-          </Link>
-        </Button>
+         <Button
+                    className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse"
+                    onClick={handleRegisterClick}
+                >
+                    Register for Weekly AI Trivia
+                    <CalendarIcon className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
+                </Button>
       </div>
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
 
