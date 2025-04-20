@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {useEffect, useState} from 'react';
 import {ArrowRight} from "lucide-react";
+import {useRouter} from "next/navigation";
 
 interface NavbarProps {
   aiConsultationLink?: string;
@@ -12,6 +13,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChange}) => {
   const [suggestedLinks, setSuggestedLinks] = useState<string[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchSuggestedLinks = async () => {
@@ -25,6 +27,13 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
 
     fetchSuggestedLinks();
   }, []);
+
+  const handleCareersClick = () => {
+    if (onSectionChange) {
+      onSectionChange('Join Our Team');
+    }
+    router.push('/careers');
+  };
 
   return (
     <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50 shadow-md transition-all duration-300">
@@ -45,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
             Appointment
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-           <Link key="Careers" href="/careers" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('Careers') : null}>
+          <Link key="Careers" href="/careers" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={handleCareersClick}>
             Careers
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
@@ -60,4 +69,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
     </nav>
   );
 };
-
