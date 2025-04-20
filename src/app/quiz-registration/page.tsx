@@ -61,10 +61,6 @@ const QuizRegistrationPage = () => {
             <h3 className="text-xl font-semibold mb-2">{team.name}</h3>
             <p className="text-gray-500">Members: {team.members.join(', ')}</p>
             <p className="text-gray-500">Team Size: {team.memberCount}</p>
-            <div className="flex items-center mt-2">
-              <span className="text-yellow-500 mr-1">Rating:</span>
-              <span>{team.rating}</span>
-            </div>
             <Button className="mt-4">Join Team</Button>
           </div>
         ))}
