@@ -6,8 +6,6 @@ import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/components/ui/accordion';
 import {ContactForm} from '@/components/contact-form';
-import {TitleOptimizerForm} from '@/components/title-optimizer-form';
-import {ContentSummarizer} from '@/components/content-summarizer';
 import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
@@ -76,16 +74,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
-        {/* AI Suggestion Section */}
-        <section className="text-center mb-8">
-          <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
-          <ul className="list-disc list-inside text-lg text-gray-600">
-            {aiSuggestions.map((suggestion, index) => (
-              <li key={index} className="mb-1">{suggestion}</li>
-            ))}
-          </ul>
-        </section>
-
         {/* Hero Section */}
         <section className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-4">Empower Your Business with AI-Driven Solutions and Data Analytics</h1>
@@ -94,6 +82,15 @@ export default function Home() {
             Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making,
             and unlock growth opportunities.
           </p>
+          {/* AI Suggestion Section */}
+          <section className="text-center mb-8">
+            <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
+            <ul className="list-disc list-inside text-lg text-gray-600">
+              {aiSuggestions.map((suggestion, index) => (
+                <li key={index} className="mb-1">{suggestion}</li>
+              ))}
+            </ul>
+          </section>
           <Button size="lg" asChild>
             <Link href="/appointment-booking" prefetch>Start Your AI-Driven Transformation Today</Link>
           </Button>
@@ -395,30 +392,6 @@ export default function Home() {
           </Accordion>
         </section>
 
-        {/* AI-Driven Tools */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4 text-center">AI-Driven Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>Title Optimizer</CardTitle>
-                <CardDescription>Generate alternative titles and headlines based on keywords and SEO best practices.</CardDescription>
-              </CardHeader>
-              <CardContent className="p-4">
-                <TitleOptimizerForm />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Content Summarizer</CardTitle>
-                <CardDescription>Automatically generate concise summaries of the provided content.</CardDescription>
-              </CardHeader>
-              <CardContent className="p-4">
-                <ContentSummarizer />
-              </CardContent>
-            </Card>
-          </div>
-        </section>
 
         {/* Contact Form Section */}
         <section className="mb-8">
@@ -435,3 +408,4 @@ export default function Home() {
     </div>
   );
 }
+
