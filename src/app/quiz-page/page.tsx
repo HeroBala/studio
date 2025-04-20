@@ -187,11 +187,6 @@ const QuizPage = () => {
           Back to Home
         </Link>
         <div className="space-x-4">
-          <Button onClick={handleRegisterClick}
-            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
-          >
-            Register for Quiz
-          </Button>
           <Button onClick={() => router.push('/moderator-application')}
             className="transition-colors duration-300 bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent"
           >
@@ -202,13 +197,16 @@ const QuizPage = () => {
 
       {/* New Section for Quiz Night at Utopia */}
       <section className="text-center mb-8">
-        <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle at Utopia!</h2>
+        <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle !</h2>
         {/* Replace the paragraph and button with the following */}
-        
+        <Button onClick={handleRegisterClick}
+            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
+          >
+            Register for Quiz
+          </Button>
 
-        
-                {/* Last Time Winner Section */}
-        <section className="mb-8">
+        {/* Last Time Winner Section */}
+        <section className="mb-8 mt-8">
           <h2 className="text-3xl font-semibold mb-4 text-center">Last Time Winner</h2>
           <div className="flex overflow-x-auto snap-x">
             {winningTeams.map((team, index) => (
