@@ -5,11 +5,12 @@ import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {ContactForm} from '@/components/contact-form';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import TestimonialCard from '@/components/testimonial-card';
-import {CalendarIcon} from "lucide-react";
+import {CalendarIcon, ArrowRight} from "lucide-react";
 import {cn} from "@/lib/utils";
+import {useInView} from 'react-intersection-observer';
 
 const testimonials = [
   {
@@ -61,11 +62,20 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
+        {/* Advertize Section */}
+        <section className="mb-8 text-center">
+          <h2 className="text-3xl font-semibold mb-4">Discover AI Insight Hub</h2>
+          <Button asChild className="mt-4 group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
+            <Link href="/quiz-page" prefetch className="flex items-center gap-1">
+              Register for Our Weekly AI Quiz in Utopia, Brno!
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
+            </Link>
+          </Button>
+        </section>
         {/* Hero Section */}
         <section className="text-center mb-8">
           <h1 className="text-3xl font-semibold mb-4">{currentSection}</h1>
-          <p className="text-lg text-muted-foreground mb-8">Welcome to AI Insight Hub, where cutting-edge AI technology meets data analytics to deliver smart solutions and actionable insights. Our expert services and personalized consultations leverage the power of AI to optimize your business processes, drive decision-making, and unlock growth opportunities.</p>
-          {/* AI-Powered Business Insights */}
+          <p className="text-lg text-muted-foreground mb-8">Empower Your Business with AI-Driven Solutions and Data Analytics</p>
           <div className="text-left md:text-center">
             <h2 className="text-2xl font-semibold mb-4">AI-Powered Business Insights</h2>
             <ul className="list-disc list-inside text-muted-foreground">
@@ -309,3 +319,4 @@ export default function Home() {
     </div>
   );
 }
+
