@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from 'next/link';
 import {Button} from '@/components/ui/button';
@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
             Careers
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-          <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
+          <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse">
             <Link href="/membership" prefetch className="flex items-center gap-1">
               Register for <span className="text-accent">Membership</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
@@ -69,3 +69,4 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
     </nav>
   );
 };
+
