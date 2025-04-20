@@ -11,6 +11,7 @@ import TestimonialCard from '@/components/testimonial-card';
 import {CalendarIcon, ArrowRight} from "lucide-react";
 import {cn} from "@/lib/utils";
 import {useInView} from 'react-intersection-observer';
+import GoogleMapComponent from "@/components/google-map";
 
 const testimonials = [
   {
@@ -65,10 +66,10 @@ export default function Home() {
         {/* Advertize Section */}
         <section className="mb-8 text-center">
           <h2 className="text-3xl font-semibold mb-4">
-             Dive into AI Trivia Tuesdays!
+          **Do You Live in Brno, Czech Republic or Are You a Tourist or Student?**
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            Test your AI knowledge and win exciting prizes every Tuesday in Utopia, Brno!
+          Want to experience the essence of Brno in one place? Join us this Sunday at Utopia for an exciting quiz night! Enjoy a cold beer, have fun, and connect with new people while discovering all that Brno has to offer. Don't miss out!
           </p>
           <div className="flex justify-center">
             <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse">
