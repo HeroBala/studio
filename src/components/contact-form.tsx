@@ -14,6 +14,7 @@ import {getSuggestedFields, type ContactFormSubmission} from '@/services/contact
 import {useToast} from '@/hooks/use-toast';
 import {cn} from "@/lib/utils";
 import {Card, CardContent} from "@/components/ui/card";
+import {summarizeContent} from "@/ai/flows/content-summarizer";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -29,6 +30,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const [isSuggestionLoading, setIsLoading] = useState(false);
+  const [isMessageSuggestionLoading, setIsMessageSuggestionLoading] = useState(false); // New state for message suggestion loading
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -68,6 +70,35 @@ export function ContactForm() {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
+  const handleMessageSuggestion = async () => {
+    setIsMessageSuggestionLoading(true);
+    try {
+      const {name, email} = form.getValues();
+      const aiResult = await summarizeContent({content: `Generate a message for ${name} with email ${email} to inquire about AI consulting services.`});
+      if (aiResult?.summary) {
+        form.setValue('message', aiResult.summary);
+        toast({
+          title: 'Message suggestion applied.',
+          description: 'AI-powered message suggestion applied to the message field.',
+        });
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Error generating message suggestion.',
+          description: 'Failed to generate a message suggestion.',
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Error generating message suggestion.',
+        description: 'Failed to generate a message suggestion.',
+      });
+    } finally {
+      setIsMessageSuggestionLoading(false);
+    }
+  };
 
   return (
     <Card>
@@ -111,7 +142,19 @@ export function ContactForm() {
                 <FormControl>
                   <Textarea placeholder="Tell us more about your needs..." {...field} />
                 </FormControl>
-                <FormDescription>What do you want to tell us?</FormDescription>
+                <FormDescription>
+                  What do you want to tell us?
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleMessageSuggestion}
+                    disabled={isMessageSuggestionLoading}
+                    className="mt-2"
+                  >
+                    {isMessageSuggestionLoading ? 'Suggesting...' : 'Suggest Message (AI)'}
+                  </Button>
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -125,5 +168,3 @@ export function ContactForm() {
     </Card>
   );
 }
-
-
