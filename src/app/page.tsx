@@ -13,7 +13,7 @@ import {cn} from "@/lib/utils";
 import {useInView} from 'react-intersection-observer';
 import GoogleMapComponent from "@/components/google-map";
 import {Badge} from "@/components/ui/badge";
-import {formatDistanceToNow} from 'date-fns';
+import {formatDistanceToNow, nextSunday, set, isSunday, addDays} from 'date-fns';
 
 const testimonials = [
   {
@@ -61,17 +61,35 @@ export default function Home() {
     setCurrentSection(sectionName);
   };
 
-   const quizDate = new Date(2024, 7, 7, 19, 0, 0); // August 7, 2024, 7:00 PM (Sunday)
+   // August 7, 2024, 7:00 PM (Sunday)
   const [timeRemaining, setTimeRemaining] = useState('');
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const timeDiff = formatDistanceToNow(quizDate, {addSuffix: true});
+      // Get the current date
+      const now = new Date();
+
+      // Find the next Sunday
+      let nextSundayDate = nextSunday(now);
+
+      // If today is Sunday, set the date to today
+      if (isSunday(now)) {
+        nextSundayDate = now;
+      }
+      // Set the time to 7:00 PM
+      const quizTime = set(nextSundayDate, {
+        hours: 19,
+        minutes: 0,
+        seconds: 0,
+        milliseconds: 0,
+      });
+
+      const timeDiff = formatDistanceToNow(quizTime, {addSuffix: true});
       setTimeRemaining(timeDiff);
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [quizDate]);
+  }, []);
 
 
   return (
@@ -476,3 +494,4 @@ export default function Home() {
     </div>
   );
 }
+
