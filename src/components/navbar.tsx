@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
           </Link>
           <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse">
             <Link href="/membership" prefetch className="flex items-center gap-1">
-              Register for <span className="text-accent">Membership</span>
+              <span className="text-accent">Membership</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
             </Link>
           </Button>
@@ -69,4 +69,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
     </nav>
   );
 };
-
