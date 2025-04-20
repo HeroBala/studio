@@ -5,12 +5,11 @@ import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {ContactForm} from '@/components/contact-form';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {Navbar} from '@/components/navbar';
 import TestimonialCard from '@/components/testimonial-card';
 import {CalendarIcon, ArrowRight} from "lucide-react";
 import {cn} from "@/lib/utils";
-import GoogleMapComponent from "@/components/google-map";
 import {Badge} from "@/components/ui/badge";
 import {formatDistanceToNow, nextSunday, set, isSunday, addDays} from 'date-fns';
 import {useRouter} from "next/navigation";
@@ -57,9 +56,18 @@ const renderStars = (rating: number) => {
 export default function Home() {
   const [currentSection, setCurrentSection] = useState('AI-Driven Solutions and Data Analytics');
   const router = useRouter();
+  const titleRef = useRef<HTMLSpanElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleSectionChange = (sectionName: string) => {
     setCurrentSection(sectionName);
+  };
+
+  const handleCareersClick = () => {
+    if (onSectionChange) {
+      onSectionChange('Join Our Team');
+    }
+    router.push('/careers');
   };
 
    // August 7, 2024, 7:00 PM (Sunday)
@@ -96,6 +104,24 @@ export default function Home() {
     router.push('/quiz-registration');
   };
 
+  const winningTeams = [
+    {
+      name: "The Algoslingers",
+      image: "https://picsum.photos/id/300/800/450",
+      description: "A team of machine learning specialists."
+    },
+    {
+      name: "The Data Ninjas",
+      image: "https://picsum.photos/id/301/800/450",
+      description: "Experts in data mining and analysis."
+    },
+    {
+      name: "The Neural Nets",
+      image: "https://picsum.photos/id/302/800/450",
+      description: "Passionate about neural networks and deep learning."
+    },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
@@ -113,12 +139,37 @@ export default function Home() {
           <div className="flex justify-center">
             <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/80 pulse" onClick={handleQuizRegisterClick}>
               <Link href="/quiz-page" prefetch className="flex items-center gap-1">
-                Register for Our Weekly AI Quiz in Utopia, Brno!
+                Visit Now
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
               </Link>
             </Button>
           </div>
         </section>
+
+        {/* Winning Team Section */}
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold mb-4 text-center">Last Time Winner</h2>
+          <div className="flex overflow-x-auto snap-x">
+            {winningTeams.map((team, index) => (
+              <div key={index} className="snap-start w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <Image
+                    src={team.image}
+                    alt={team.name}
+                    width={800}
+                    height={450}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold mb-2">{team.name}</h3>
+                    <p className="text-gray-600">{team.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Hero Section */}
         <section className="text-center mb-8">
           <h1 className="text-3xl font-semibold mb-4">{currentSection}</h1>
@@ -366,29 +417,6 @@ export default function Home() {
               <TestimonialCard key={index} {...testimonial} />
             ))}
           </div>
-        </section>
-
-        {/* How It Works Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">How It Works</h2>
-          <Accordion type="single" collapsible>
-            <AccordionItem value="step-1">
-              <AccordionTrigger>Step 1: AI &amp; Data Assessment</AccordionTrigger>
-              <AccordionContent>We begin by understanding your business goals and collecting relevant data to assess your AI readiness.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="step-2">
-              <AccordionTrigger>Step 2: Data Analysis and Insights Generation</AccordionTrigger>
-              <AccordionContent>Our AI algorithms analyze your data to generate actionable insights and identify opportunities for improvement.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="step-3">
-              <AccordionTrigger>Step 3: AI Solution Development &amp; Integration</AccordionTrigger>
-              <AccordionContent>We develop and integrate custom AI models or analytics tools into your business operations.</AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="step-4">
-              <AccordionTrigger>Step 4: Ongoing Monitoring and Optimization</AccordionTrigger>
-              <AccordionContent>We continuously monitor performance and refine AI models to ensure long-term success and ROI.</AccordionContent>
-            </AccordionItem>
-          </Accordion>
         </section>
 
         {/* Our Team Section */}
