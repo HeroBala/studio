@@ -10,9 +10,14 @@ import {cn} from '@/lib/utils';
 
 const MembershipPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
@@ -59,13 +64,27 @@ const MembershipPage = () => {
           </div>
           <div>
             <Label htmlFor="confirmPassword" className="text-lg font-semibold text-foreground">Confirm Password</Label>
-            <Input
-              type="password"
-              id="confirmPassword"
-              placeholder="Re-enter password"
-              required
-              className="mt-2"
-            />
+            <div className="relative">
+              <Input
+                type={showConfirmPassword ? 'text' : 'password'}
+                id="confirmPassword"
+                placeholder="Re-enter password"
+                required
+                className="mt-2 w-full"
+              />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleConfirmPasswordVisibility}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 hover:bg-accent/80"
+              >
+                {showConfirmPassword ? (
+                  <span className="text-gray-500">Hide</span>
+                ) : (
+                  <span className="text-gray-500">Show</span>
+                )}
+              </Button>
+            </div>
           </div>
           <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Sign Up</Button>
           <div className="text-center">
