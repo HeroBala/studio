@@ -54,8 +54,9 @@ const Chatbot: React.FC = () => {
     <>
       {/* Chatbot Icon - Always Visible */}
       <div className="fixed bottom-4 right-4 z-50">
-        <Button variant="secondary" size="icon" onClick={handleOpenChatbot} aria-label="Open Chatbot">
+        <Button variant="secondary" onClick={handleOpenChatbot} aria-label="Open Chatbot" className="flex items-center gap-2">
           <MessageSquare className="h-5 w-5"/>
+          Your Bot
         </Button>
       </div>
 
