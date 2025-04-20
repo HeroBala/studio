@@ -1,24 +1,36 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {Button} from "@/components/ui/button";
 
 export default function NotFound() {
   const router = useRouter();
   const [quizAnswer, setQuizAnswer] = useState('');
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     // Basic quiz validation
     if (quizAnswer.toLowerCase() === 'ai') {
-      alert('Correct! Redirecting to homepage.');
+      setFeedbackMessage('Correct! Redirecting to homepage...');
+      setIsCorrect(true);
     } else {
-      alert('Incorrect answer. Try again!');
-      return;
+      setFeedbackMessage('Incorrect answer. Try again!');
+      setIsCorrect(false);
     }
-    router.push('/');
   };
+
+  useEffect(() => {
+    if (feedbackMessage) {
+      const timer = setTimeout(() => {
+        router.push('/');
+      }, 3000); // Redirect after 3 seconds
+
+      return () => clearTimeout(timer); // Clear timeout if component unmounts
+    }
+  }, [feedbackMessage, router]);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-background text-foreground">
@@ -38,11 +50,18 @@ export default function NotFound() {
           placeholder="Enter your answer"
           value={quizAnswer}
           onChange={(e) => setQuizAnswer(e.target.value)}
+          disabled={feedbackMessage !== ''}
         />
-        <Button type="submit" className="bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent">
+        <Button type="submit" className="bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent" disabled={feedbackMessage !== ''}>
           Submit Answer
         </Button>
       </form>
+
+      {feedbackMessage && (
+        <div className={`mt-4 p-4 rounded-md ${isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'} animate-pulse`}>
+          {feedbackMessage}
+        </div>
+      )}
     </div>
   );
 }
