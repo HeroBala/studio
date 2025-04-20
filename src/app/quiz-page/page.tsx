@@ -5,8 +5,15 @@ import Link from 'next/link';
 import {ArrowLeft} from 'lucide-react';
 import {Button} from "@/components/ui/button";
 import {CalendarIcon} from "lucide-react";
-import { useRouter } from 'next/navigation';
+import {useRouter} from 'next/navigation';
 import Image from 'next/image';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 // Define quiz categories
 const quizCategories = [
@@ -92,12 +99,40 @@ const QuizPage = () => {
     setQuizCompleted(true);
   };
 
-   const handleRegisterClick = () => {
-        router.push('/quiz-registration');
-    };
+  const calculateScore = () => {
+    let correctAnswersCount = 0;
+    questions.forEach((question, index) => {
+      if (userAnswers[index] === question.correctAnswer) {
+        correctAnswersCount++;
+      }
+    });
+    return ((correctAnswersCount / questions.length) * 100).toFixed(2);
+  };
+
+  const utopiaProducts = [
+    {
+      name: 'Snacks',
+      description: 'Enjoy a variety of tasty snacks during the quiz.',
+      image: '/images/snacks.jpg',
+    },
+    {
+      name: 'Beer',
+      description: 'Selection of beers to quench your thirst.',
+      image: '/images/beer.jpg',
+    },
+    {
+      name: 'Tea',
+      description: 'A variety of teas to quench your thirst.',
+      image: '/images/tea.jpg',
+    },
+  ];
+
+  const handleRegisterClick = () => {
+    router.push('/quiz-registration');
+  };
 
   return (
-    <div className="container mx-auto py-12" style={{ backgroundImage: `url('/images/brno-quiz-bg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div className="container mx-auto py-12" style={{backgroundImage: `url('/images/brno-quiz-bg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh'}}>
       <div className="flex justify-between items-center mb-8">
         <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
           <ArrowLeft className="h-5 w-5"/>
@@ -112,15 +147,31 @@ const QuizPage = () => {
           Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night!
         </p>
         <Image
-            src="/images/utopia-brno.jpg"
-            alt="Utopia Brno"
-            width={800}
-            height={400}
-            className="rounded-md mx-auto mb-4"
-          />
+          src="/images/utopia-brno.jpg"
+          alt="Utopia Brno"
+          width={800}
+          height={400}
+          className="rounded-md mx-auto mb-4"
+        />
         <p className="text-gray-700">
           Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable!
         </p>
+
+        {/* Display Product Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          {utopiaProducts.map((product, index) => (
+            <Card key={index} className="border rounded-lg p-4">
+              <CardHeader>
+                <CardTitle>{product.name}</CardTitle>
+                <CardDescription>{product.description}</CardDescription>
+              </CardHeader>
+              <Image src={product.image} alt={product.name} className="w-full h-32 object-cover rounded-md mb-4" width={300} height={200}/>
+              <CardContent>
+                <Button>View More</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
