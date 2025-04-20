@@ -59,3 +59,4 @@ const DataAnalyticsReportingPage = () => {
 };
 
 export default DataAnalyticsReportingPage;
+

@@ -154,3 +154,4 @@ const AppointmentBookingPage: React.FC = () => {
 };
 
 export default AppointmentBookingPage;
+
