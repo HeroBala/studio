@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
             Home
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-          <Link key="Services" href="/#services" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+          <Link key="Services" href="#services" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
             Services
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>

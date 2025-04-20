@@ -80,7 +80,7 @@ export default function Home() {
         </section>
 
         {/* Services Offered Section */}
-        <section className="mb-8">
+        <section id="services" className="mb-8">
           <h2 className="text-3xl font-semibold mb-8 text-center">Services Offered</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -303,3 +303,4 @@ export default function Home() {
     </div>
   );
 }
+
