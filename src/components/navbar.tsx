@@ -16,10 +16,10 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
   useEffect(() => {
     const fetchSuggestedLinks = async () => {
       try {
-        setSuggestedLinks(['Home', 'Services', 'Appointment', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'Appointment', 'Careers']);
       } catch (error) {
         console.error('Error fetching optimized links:', error);
-        setSuggestedLinks(['Home', 'Services', 'Appointment', 'Contact Us']);
+        setSuggestedLinks(['Home', 'Services', 'Appointment', 'Careers']);
       }
     };
 
@@ -45,8 +45,8 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
             Appointment
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-           <Link key="Contact" href="/#contact" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('Contact Us') : null}>
-            Contact
+           <Link key="Careers" href="/careers" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('Careers') : null}>
+            Careers
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
           <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
@@ -60,3 +60,4 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
     </nav>
   );
 };
+
