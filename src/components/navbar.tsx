@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import {Button} from '@/components/ui/button';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {ArrowRight} from "lucide-react";
 import {useRouter} from "next/navigation";
+import {cn} from "@/lib/utils";
 
 interface NavbarProps {
   aiConsultationLink?: string;
@@ -14,6 +15,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChange}) => {
   const [suggestedLinks, setSuggestedLinks] = useState<string[]>([]);
   const router = useRouter();
+  const titleRef = useRef<HTMLSpanElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const fetchSuggestedLinks = async () => {
@@ -39,7 +42,17 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
     <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50 shadow-md transition-all duration-300">
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="text-2xl font-bold hover:text-accent-foreground transition-colors duration-200" prefetch>
-          <span className="ai-insight-hub-animation">AI Insight Hub</span>
+          <span
+            ref={titleRef}
+            className={cn(
+              "ai-insight-hub-animation",
+              isHovered ? "animation-paused" : ""
+            )}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            AI Insight Hub
+          </span>
         </Link>
         <div className="flex items-center space-x-4">
           <Link key="Home" href="/" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch" onClick={() => onSectionChange ? onSectionChange('AI-Driven Solutions and Data Analytics') : null}>
@@ -58,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink, onSectionChan
             Careers
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
           </Link>
-          <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse">
+          <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
             <Link href="/membership" prefetch className="flex items-center gap-1">
               <span className="text-accent">Membership</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
