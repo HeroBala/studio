@@ -36,6 +36,12 @@ export default function NotFound() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-background text-foreground">
+       <div className="flex justify-start mt-8">
+        <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
+          <ArrowLeft className="h-5 w-5"/>
+          Back to Home
+        </Link>
+      </div>
       <h1 className="text-4xl font-semibold mb-4">404 - Page Not Found</h1>
       <p className="text-lg text-muted-foreground mb-8">
         Oops! The page you are looking for does not exist.
@@ -64,14 +70,6 @@ export default function NotFound() {
           {feedbackMessage}
         </div>
       )}
-       <div className="flex justify-start mt-8">
-        <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
-          <ArrowLeft className="h-5 w-5"/>
-          Back to Home
-        </Link>
-      </div>
     </div>
   );
 }
-
-
