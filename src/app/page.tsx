@@ -98,7 +98,7 @@ export default function Home() {
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
         <section className="mb-8 text-center bg-secondary rounded-lg p-6 relative">
-           <Badge className="absolute top-2 right-2">Limited Time Offer</Badge>
+           <Badge className="absolute top-2 right-2">Cheers With Beers</Badge>
           <h2 className="text-3xl font-semibold mb-4">
             Sunday Funday in Brno!
           </h2>
