@@ -44,7 +44,7 @@ const Chatbot: React.FC = () => {
     setIsOpen(true);
   };
 
-  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
@@ -107,4 +107,3 @@ const Chatbot: React.FC = () => {
 };
 
 export default Chatbot;
-"
