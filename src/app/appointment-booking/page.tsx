@@ -55,10 +55,12 @@ const AppointmentBookingPage: React.FC = () => {
 
   return (
     <div className="container mx-auto py-12">
-      <Link href="/" className="mb-8 inline-flex items-center gap-2 text-lg" prefetch>
-        <ArrowLeft className="h-5 w-5"/>
-        Back to Home
-      </Link>
+      <div className="flex justify-start mb-8">
+        <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
+          <ArrowLeft className="h-5 w-5"/>
+          Back to Home
+        </Link>
+      </div>
       <h1 className="text-3xl font-semibold text-center mb-8">Book an Appointment</h1>
 
       <div className="flex flex-col md:flex-row gap-8">
