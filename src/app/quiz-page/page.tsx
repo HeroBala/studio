@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import {ArrowLeft} from 'lucide-react';
 import {Button} from "@/components/ui/button";
+import {CalendarIcon} from "lucide-react";
 
 // Define quiz categories
 const quizCategories = [
@@ -100,18 +101,24 @@ const QuizPage = () => {
 
   return (
     <div className="container mx-auto py-12">
-      <div className="flex justify-start mb-8">
+      <div className="flex justify-between items-center mb-8">
         <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
           <ArrowLeft className="h-5 w-5"/>
           Back to Home
         </Link>
+        <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
+          <Link href="/appointment-booking" prefetch className="flex items-center gap-1">
+            Register for Weekly AI Quiz
+            <CalendarIcon className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
+          </Link>
+        </Button>
       </div>
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
 
       {!selectedCategory ? (
         <div className="text-lg text-gray-600 mb-6 text-center">
           <p className="mb-4">Select a category to start the quiz!</p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {quizCategories.map((category) => (
               <Button key={category} onClick={() => handleCategorySelect(category)}>
                 {category}
