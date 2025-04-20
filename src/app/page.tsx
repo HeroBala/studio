@@ -321,39 +321,83 @@ export default function Home() {
         <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-8 text-center">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Placeholder for Team Members */}
+            {/* Team Member 1 */}
             <div className="border rounded-lg p-4 text-center">
               <Image
                 src="https://picsum.photos/100/100"
-                alt="Team Member 1"
+                alt="John Doe"
                 width={100}
                 height={100}
                 className="rounded-full mx-auto mb-2"
               />
               <h3 className="text-xl font-semibold">John Doe</h3>
               <p className="text-gray-500">CEO</p>
+              <p className="text-gray-600">John is an experienced executive with a passion for leveraging AI to drive business growth.</p>
             </div>
+            {/* Team Member 2 */}
             <div className="border rounded-lg p-4 text-center">
               <Image
                 src="https://picsum.photos/101/100"
-                alt="Team Member 2"
+                alt="Jane Smith"
                 width={100}
                 height={100}
                 className="rounded-full mx-auto mb-2"
               />
               <h3 className="text-xl font-semibold">Jane Smith</h3>
               <p className="text-gray-500">CTO</p>
+               <p className="text-gray-600">Jane is a technology expert with a focus on creating innovative AI solutions.</p>
             </div>
+            {/* Team Member 3 */}
             <div className="border rounded-lg p-4 text-center">
               <Image
                 src="https://picsum.photos/102/100"
-                alt="Team Member 3"
+                alt="Mike Johnson"
                 width={100}
                 height={100}
                 className="rounded-full mx-auto mb-2"
               />
               <h3 className="text-xl font-semibold">Mike Johnson</h3>
               <p className="text-gray-500">Lead Data Scientist</p>
+              <p className="text-gray-600">Mike is a data science leader specializing in machine learning and predictive analytics.</p>
+            </div>
+             {/* Team Member 4 */}
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/103/100"
+                alt="Alice Brown"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">Alice Brown</h3>
+              <p className="text-gray-500">Marketing Director</p>
+              <p className="text-gray-600">Alice leads marketing efforts, focusing on AI-driven strategies to enhance brand awareness.</p>
+            </div>
+            {/* Team Member 5 */}
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/104/100"
+                alt="David Lee"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">David Lee</h3>
+              <p className="text-gray-500">AI Consultant</p>
+              <p className="text-gray-600">David advises clients on AI implementations, ensuring optimal solutions for their unique needs.</p>
+            </div>
+             {/* Team Member 6 */}
+            <div className="border rounded-lg p-4 text-center">
+              <Image
+                src="https://picsum.photos/105/100"
+                alt="Sarah Green"
+                width={100}
+                height={100}
+                className="rounded-full mx-auto mb-2"
+              />
+              <h3 className="text-xl font-semibold">Sarah Green</h3>
+              <p className="text-gray-500">Data Analyst</p>
+              <p className="text-gray-600">Sarah provides expertise in data analysis and reporting, delivering actionable insights to clients.</p>
             </div>
           </div>
         </section>
