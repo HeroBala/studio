@@ -32,22 +32,22 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
-          {['Home', 'Services', 'Appointment'].map(link => {
-            let href = '/';
-            if (link.toLowerCase() === 'services') {
-              href = '/services';
-            } else if (link.toLowerCase() === 'appointment') {
-              href = '/appointment-booking';
-            } else if (link.toLowerCase() === 'contact') {
-              href = '/contact';
-            }
-            return (
-              <Link key={link} href={href} className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
-                {link}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
-              </Link>
-            );
-          })}
+          <Link key="Home" href="/" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+            Home
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
+          </Link>
+          <Link key="Services" href="/services" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+            Services
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
+          </Link>
+          <Link key="Appointment" href="/appointment-booking" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+            Appointment
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
+          </Link>
+           <Link key="Contact" href="/#contact" className="relative group hover:text-accent-foreground transition-colors duration-200 prefetch">
+            Contact
+            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-left transform scale-x-0 transition-transform group-hover:scale-x-100 duration-300"></span>
+          </Link>
           <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
             <Link href="/membership" prefetch className="flex items-center gap-1">
               Register for <span className="text-accent">Membership</span>
@@ -59,4 +59,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
-
