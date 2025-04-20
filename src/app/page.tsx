@@ -66,7 +66,7 @@ export default function Home() {
         {/* Advertize Section */}
         <section className="mb-8 text-center">
           <h2 className="text-3xl font-semibold mb-4">
-          **Do You Live in Brno, Czech Republic or Are You a Tourist or Student?**
+          Do You Live in Brno, Czech Republic or Are You a Tourist or Student?
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
           Want to experience the essence of Brno in one place? Join us this Sunday at Utopia for an exciting quiz night! Enjoy a cold beer, have fun, and connect with new people while discovering all that Brno has to offer. Don't miss out!
