@@ -22,3 +22,4 @@ const GoogleMapComponent: React.FC<GoogleMapProps> = ({placeId}) => {
 };
 
 export default GoogleMapComponent;
+

@@ -11,6 +11,14 @@ import {Navbar} from '@/components/navbar';
 import Chatbot from '@/components/chatbot';
 import dynamic from 'next/dynamic';
 import {useInView} from 'react-intersection-observer';
+import {
+  Lightbulb,
+  TrendingUp,
+  MessageSquare,
+  Settings,
+  Users,
+  BookOpenCheck,
+} from 'lucide-react';
 
 const testimonials = [
   {
@@ -122,6 +130,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="star-rating">
                     {renderStars(4)}
+                    <span className="ml-1">4.0</span>
                   </div>
                   <Button variant="link" asChild>
                     <Link href="/services/ai-strategy-consulting" prefetch>Learn More</Link>
@@ -158,6 +167,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="star-rating">
                     {renderStars(5)}
+                    <span className="ml-1">5.0</span>
                   </div>
                   <Button variant="link" asChild>
                     <Link href="/services/data-analytics-reporting" prefetch>Learn More</Link>
@@ -194,6 +204,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="star-rating">
                     {renderStars(3)}
+                    <span className="ml-1">3.0</span>
                   </div>
                   <Button variant="link" asChild>
                     <Link href="/services/ai-marketing-solutions" prefetch>Learn More</Link>
@@ -229,6 +240,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="star-rating">
                     {renderStars(4)}
+                    <span className="ml-1">4.0</span>
                   </div>
                   <Button variant="link" asChild>
                     <Link href="/services/ai-process-automation" prefetch>Learn More</Link>
@@ -262,6 +274,7 @@ export default function Home() {
                 <div className="flex items-center justify-between">
                   <div className="star-rating">
                     {renderStars(5)}
+                    <span className="ml-1">5.0</span>
                   </div>
                   <Button variant="link" asChild>
                     <Link href="/services/custom-ai-solutions" prefetch>Learn More</Link>
@@ -355,6 +368,7 @@ export default function Home() {
                 </blockquote>
                 <div className="star-rating">
                   {renderStars(testimonial.rating)}
+                  <span className="ml-1">{testimonial.rating}.0</span>
                 </div>
               </Card>
             ))}
@@ -408,4 +422,5 @@ export default function Home() {
     </div>
   );
 }
+
 

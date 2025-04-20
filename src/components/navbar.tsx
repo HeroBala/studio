@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
-          {['Home', 'Services', 'About', 'Appointment Booking', 'Contact'].map(link => {
+          {['Home', 'Services', 'About', 'Appointment Booking'].map(link => {
             let href = '/';
             if (link.toLowerCase() === 'services') {
               href = '/services';
@@ -54,4 +54,5 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
+
 
