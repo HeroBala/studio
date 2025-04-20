@@ -30,6 +30,9 @@ const MembershipPage = () => {
       </div>
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl font-semibold text-center mb-6">Join Our Membership Today</h1>
+         <p className="text-lg text-muted-foreground text-center mb-4">
+          We Believe in Connection: Come Join Us and Connect Like Never Before
+        </p>
         <p className="text-lg text-muted-foreground text-center mb-8">
           Sign up to gain access to exclusive content, services, and personalized AI-driven solutions.
         </p>
