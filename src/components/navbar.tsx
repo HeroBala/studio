@@ -26,9 +26,9 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
   }, []);
 
   return (
-    <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50">
-      <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold" prefetch>
+    <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50 shadow-md transition-all duration-300">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="text-2xl font-bold hover:text-accent-foreground transition-colors duration-200" prefetch>
           <span className="ai-insight-hub-animation">AI Insight Hub</span>
         </Link>
         <div className="flex items-center space-x-4">
@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
               href = '/contact';
             }
             return (
-              <Link key={link} href={href} className="hover:text-accent-foreground" prefetch>
+              <Link key={link} href={href} className="hover:text-accent-foreground transition-colors duration-200" prefetch>
                 {link}
               </Link>
             );
@@ -58,4 +58,3 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink}) => {
     </nav>
   );
 };
-
