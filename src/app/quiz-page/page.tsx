@@ -131,6 +131,24 @@ const QuizPage = () => {
     router.push('/quiz-registration');
   };
 
+  const winningTeams = [
+    {
+      name: "The Algoslingers",
+      image: "https://picsum.photos/id/300/800/450",
+      description: "A team of machine learning specialists."
+    },
+    {
+      name: "The Data Ninjas",
+      image: "https://picsum.photos/id/301/800/450",
+      description: "Experts in data mining and analysis."
+    },
+    {
+      name: "The Neural Nets",
+      image: "https://picsum.photos/id/302/800/450",
+      description: "Passionate about neural networks and deep learning."
+    },
+  ];
+
   return (
     <div className="container mx-auto py-12" style={{backgroundImage: `url('/images/brno-quiz-bg.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh'}}>
       <div className="flex justify-between items-center mb-8">
@@ -185,6 +203,30 @@ const QuizPage = () => {
           ))}
         </div>
       </section>
+
+       {/* Winning Team Section */}
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold mb-4 text-center">Last Time Winner</h2>
+          <div className="flex overflow-x-auto snap-x">
+            {winningTeams.map((team, index) => (
+              <div key={index} className="snap-start w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <Image
+                    src={team.image}
+                    alt={team.name}
+                    width={800}
+                    height={450}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold mb-2">{team.name}</h3>
+                    <p className="text-gray-600">{team.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
 

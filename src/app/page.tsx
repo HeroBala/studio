@@ -146,30 +146,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Winning Team Section */}
-        <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4 text-center">Last Time Winner</h2>
-          <div className="flex overflow-x-auto snap-x">
-            {winningTeams.map((team, index) => (
-              <div key={index} className="snap-start w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
-                <div className="rounded-lg overflow-hidden shadow-md">
-                  <Image
-                    src={team.image}
-                    alt={team.name}
-                    width={800}
-                    height={450}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold mb-2">{team.name}</h3>
-                    <p className="text-gray-600">{team.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Hero Section */}
         <section className="text-center mb-8">
           <h1 className="text-3xl font-semibold mb-4">{currentSection}</h1>
@@ -526,3 +502,4 @@ export default function Home() {
     </div>
   );
 }
+
