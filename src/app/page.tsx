@@ -71,7 +71,7 @@ export default function Home() {
             Test your AI knowledge and win exciting prizes every Tuesday in Utopia, Brno!
           </p>
           <div className="flex justify-center">
-            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80">
+            <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 pulse">
               <Link href="/quiz-page" prefetch className="flex items-center gap-1">
                 Register for Our Weekly AI Quiz in Utopia, Brno!
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>

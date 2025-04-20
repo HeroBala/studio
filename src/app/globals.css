@@ -100,6 +100,10 @@ body {
   }
 }
 
+.pulse {
+  animation: pulse 2s infinite;
+}
+
 .pulsing-nav {
   animation: pulse 2s infinite;
 }
@@ -341,6 +345,11 @@ body {
   }
 }
 
+.pulse {
+  animation: pulse 2s infinite;
+}
+
 .pulsing-nav {
   animation: pulse 2s infinite;
 }
+
