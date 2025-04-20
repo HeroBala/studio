@@ -138,6 +138,18 @@ const QuizPage = () => {
           <ArrowLeft className="h-5 w-5"/>
           Back to Home
         </Link>
+        <div className="space-x-4">
+          <Button onClick={handleRegisterClick}
+            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
+          >
+            Register for Quiz
+          </Button>
+          <Button onClick={() => router.push('/moderator-application')}
+            className="transition-colors duration-300 bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent"
+          >
+            Apply to be a Moderator
+          </Button>
+        </div>
       </div>
 
       {/* New Section for Quiz Night at Utopia */}
