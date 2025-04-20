@@ -206,35 +206,8 @@ const QuizPage = () => {
         <p className="text-lg text-gray-600 mb-4">
           Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night!
         </p>
-        <Image
-          src="/images/utopia-brno.jpg"
-          alt="Utopia Brno"
-          width={800}
-          height={400}
-          className="rounded-md mx-auto mb-4"
-        />
-        <p className="text-gray-700">
-          Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable!
-        </p>
-
-        {/* Display Product Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-          {utopiaProducts.map((product, index) => (
-            <Card key={index} className="border rounded-lg p-4">
-              <CardHeader>
-                <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.description}</CardDescription>
-              </CardHeader>
-              <Image src={product.image} alt={product.name} className="w-full h-32 object-cover rounded-md mb-4" width={300} height={200}/>
-              <CardContent>
-                <Button>View More</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-       {/* Winning Team Section */}
+        
+        {/* Winning Team Section */}
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4 text-center">Last Time Winner</h2>
           <div className="flex overflow-x-auto snap-x">
@@ -257,6 +230,23 @@ const QuizPage = () => {
             ))}
           </div>
         </section>
+
+        {/* Display Product Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          {utopiaProducts.map((product, index) => (
+            <Card key={index} className="border rounded-lg p-4">
+              <CardHeader>
+                <CardTitle>{product.name}</CardTitle>
+                <CardDescription>{product.description}</CardDescription>
+              </CardHeader>
+              <Image src={product.image} alt={product.name} className="w-full h-32 object-cover rounded-md mb-4" width={300} height={200}/>
+              <CardContent>
+                <Button>View More</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
 
       <h1 className="text-3xl font-semibold text-center mb-8">AI Trivia Quiz</h1>
 
