@@ -6,6 +6,7 @@ import {useEffect, useState, useRef} from 'react';
 import {ArrowRight} from "lucide-react";
 import {useRouter} from "next/navigation";
 import {cn} from "@/lib/utils";
+import {Bell} from "lucide-react";
 
 interface NavbarProps {
   aiConsultationLink?: string;
@@ -77,6 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink = "/appointmen
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1"/>
             </Link>
           </Button>
+          <Bell className="h-6 w-6 animate-pulse" />
         </div>
       </div>
     </nav>
