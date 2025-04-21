@@ -127,23 +127,38 @@ export default function Home() {
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
-        <section className="mb-8 text-center relative rounded-lg p-6" style={{
-          backgroundImage: "url('/images/utopia.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.9,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay
-          backgroundBlendMode: 'overlay',
-          color: 'white'
-        }}>
+        <section
+          className="mb-8 text-center relative rounded-lg p-6"
+          style={{
+            backgroundImage: "url('/images/utopia.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundBlendMode: 'overlay',
+            color: 'white',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+        >
            <Badge className="absolute top-2 right-2">Cheers With Beers</Badge>
-          <h2 className="text-3xl font-semibold mb-4" style={{color: 'white', fontWeight: 'bold'}}>
+          <h2 className="text-3xl font-semibold mb-4" style={{
+            color: 'white',
+            fontWeight: 'bold',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
+          }}>
             Sunday Funday in Brno!
           </h2>
-          <p className="text-lg mb-4" style={{color: 'white', fontWeight: 'bold'}}>
+          <p className="text-lg mb-4" style={{
+            color: 'white',
+            fontWeight: 'bold',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)',
+          }}>
             Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night! Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable!
           </p>
-          <p className="text-sm mb-4" style={{color: 'white'}}>Time Remaining: {timeRemaining}</p>
+          <p className="text-sm mb-4" style={{
+            color: 'white',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)',
+          }}>Time Remaining: {timeRemaining}</p>
           <div className="flex justify-center">
             <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/80 pulse" onClick={handleQuizRegisterClick}>
               <Link href="/quiz-page" prefetch className="flex items-center gap-1">
@@ -197,6 +212,10 @@ export default function Home() {
               <p className="text-sm text-muted-foreground mb-2">Tools: AI Market Research, Predictive Analytics</p>
               <p className="text-sm text-muted-foreground">"This service helped us clarify our vision and set achievable goals." - Happy Client</p>
               </div>
+              <div className="p-6 flex justify-end">
+                <Link href="/services/ai-strategy-consulting" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
+              </div>
             </div>
 
           {/* Smart E-Shop Builder */}
@@ -213,6 +232,10 @@ export default function Home() {
               </ul>
               <p className="text-sm text-muted-foreground mb-2">Tools: Shopify, WooCommerce, AI Recommendation Engines</p>
               <p className="text-sm text-muted-foreground">"Our sales skyrocketed after implementing the Smart E-Shop Builder!" - E-commerce Store Owner</p>
+              </div>
+              <div className="p-6 flex justify-end">
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
 
@@ -231,6 +254,10 @@ export default function Home() {
               <p className="text-sm text-muted-foreground mb-2">Tools: Zapier, IFTTT, Custom AI Assistants</p>
               <p className="text-sm text-muted-foreground">"My AI assistant handles all the small tasks, so I can focus on what matters." - Busy Entrepreneur</p>
               </div>
+              <div className="p-6 flex justify-end">
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
+              </div>
             </div>
 
           {/* AI-Powered Digital Marketing Engine */}
@@ -247,6 +274,10 @@ export default function Home() {
               </ul>
               <p className="text-sm text-muted-foreground mb-2">Tools: Google Ads, Facebook Ads Manager, AI Content Generators</p>
               <p className="text-sm text-muted-foreground">"Our digital marketing campaigns are now smarter and more effective thanks to this service." - Marketing Director</p>
+              </div>
+              <div className="p-6 flex justify-end">
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
 
@@ -265,6 +296,10 @@ export default function Home() {
               <p className="text-sm text-muted-foreground mb-2">Tools: Tableau, Power BI, Custom AI Dashboards</p>
               <p className="text-sm text-muted-foreground">"The dashboard gives us a clear, up-to-date view of our business performance." - Operations Manager</p>
             </div>
+              <div className="p-6 flex justify-end">
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
+              </div>
           </div>
 
           {/* AI Content Studio */}
@@ -281,6 +316,10 @@ export default function Home() {
               </ul>
               <p className="text-sm text-muted-foreground mb-2">Tools: GPT-3, Copy.ai, Jasper</p>
               <p className="text-sm text-muted-foreground">"AI Content Studio helps us maintain a consistent and engaging online presence." - Content Strategist</p>
+              </div>
+              <div className="p-6 flex justify-end">
+                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
           </div>
