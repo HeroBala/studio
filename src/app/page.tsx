@@ -125,7 +125,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
-      <Badge className="absolute top-2 right-2">Under Construction</Badge>
+      <Badge className="z-50 top-2 right-2 text-white">Under Construction</Badge>
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
         <section
@@ -256,7 +256,7 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">"My AI assistant handles all the small tasks, so I can focus on what matters." - Busy Entrepreneur</p>
               </div>
               <div className="p-6 flex justify-end">
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/services/ai-process-automation" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
                 <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
@@ -298,7 +298,7 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">"The dashboard gives us a clear, up-to-date view of our business performance." - Operations Manager</p>
             </div>
               <div className="p-6 flex justify-end">
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/services/data-analytics-reporting" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
                 <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
           </div>
@@ -319,7 +319,7 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">"AI Content Studio helps us maintain a consistent and engaging online presence." - Content Strategist</p>
               </div>
               <div className="p-6 flex justify-end">
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/services/custom-ai-solutions" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
                 <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
@@ -444,3 +444,4 @@ export default function Home() {
   );
 }
 
+''
