@@ -190,7 +190,7 @@ const QuizPage = () => {
           <Button onClick={() => router.push('/moderator-application')}
             className="transition-colors duration-300 bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent pulse"
           >
-            Apply to be a Moderator
+            Be an Event Moderator🎙️
           </Button>
         </div>
       </div>
