@@ -1,3 +1,15 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1037371989.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3707680959.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:517861887.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1345766180.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2334210955.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2525607579.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2078572748.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:969985961.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2312857495.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3102006289.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1636765857.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3009108692.
 'use client';
 
 import Image from 'next/image';
@@ -174,212 +186,105 @@ export default function Home() {
           <h2 className="text-3xl font-semibold mb-8 text-center">Services Offered</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            {/* AI-Powered Business Strategy Consulting */}
+          {/* Strategy & Planning */}
             <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <div className="text-2xl font-semibold leading-none tracking-tight">AI-Powered Business Strategy Consulting</div>
-                <div className="text-sm text-muted-foreground">Use predictive analytics and AI algorithms to help businesses make informed decisions and drive future growth.</div>
+              <div className="text-2xl font-semibold leading-none tracking-tight">Strategy & Planning</div>
+              <div className="text-sm text-muted-foreground">Define your business goals and create a roadmap for success using AI-powered insights and market analysis.</div>
               </div>
               <div className="p-6 pt-0">
-                <Image
-                  src="https://picsum.photos/200/150"
-                  alt="AI Consulting"
-                  width={200}
-                  height={150}
-                  style={{objectFit: 'cover'}}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-muted-foreground mb-2">We leverage AI to analyze market trends and provide strategic recommendations.</p>
-                <div className="flex items-center justify-between">
-                  <div className="star-rating">
-                    {renderStars(4)}
-                    <span className="ml-1">4.0</span>
-                  </div>
-                  <Button variant="link" asChild>
-                    <Link href="/services/ai-strategy-consulting" prefetch>
-                      Learn More
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex justify-end">
-                <Button asChild>
-                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                </Button>
+              <ul className="list-disc list-inside text-sm text-muted-foreground mb-2">
+                <li>Market Opportunity Analysis</li>
+                <li>Strategic Roadmap Development</li>
+                <li>Goal Setting and KPIs</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mb-2">Tools: AI Market Research, Predictive Analytics</p>
+              <p className="text-sm text-muted-foreground">"This service helped us clarify our vision and set achievable goals." - Happy Client</p>
               </div>
             </div>
 
-            {/* Data Analytics and Reporting */}
+          {/* Smart E-Shop Builder */}
             <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <div className="text-2xl font-semibold leading-none tracking-tight">Data Analytics and Reporting</div>
-                <div className="text-sm text-muted-foreground">Provide detailed analytics reports to uncover insights about customer behavior, sales trends, and more, enabling businesses to optimize operations and performance.</div>
+              <div className="text-2xl font-semibold leading-none tracking-tight">Smart E-Shop Builder</div>
+              <div className="text-sm text-muted-foreground">Launch a powerful online store with AI-driven product recommendations and personalized shopping experiences.</div>
               </div>
               <div className="p-6 pt-0">
-                <Image
-                  src="https://picsum.photos/201/150"
-                  alt="Data Analytics"
-                  width={200}
-                  height={150}
-                  style={{objectFit: 'cover'}}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-muted-foreground mb-2">Our reports offer actionable insights to improve your business performance.</p>
-                <div className="flex items-center justify-between">
-                  <div className="star-rating">
-                    {renderStars(5)}
-                    <span className="ml-1">5.0</span>
-                  </div>
-                  <Button variant="link" asChild>
-                    <Link href="/services/data-analytics-reporting" prefetch>
-                      Learn More
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex justify-end">
-                <Button asChild>
-                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                </Button>
+              <ul className="list-disc list-inside text-sm text-muted-foreground mb-2">
+                <li>E-commerce Platform Setup</li>
+                <li>AI Product Recommendations</li>
+                <li>Personalized User Experience</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mb-2">Tools: Shopify, WooCommerce, AI Recommendation Engines</p>
+              <p className="text-sm text-muted-foreground">"Our sales skyrocketed after implementing the Smart E-Shop Builder!" - E-commerce Store Owner</p>
               </div>
             </div>
 
-            {/* AI-Driven Marketing Solutions */}
+          {/* AI Business Assistant */}
             <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <div className="text-2xl font-semibold leading-none tracking-tight">AI-Driven Marketing Solutions</div>
-                <div className="text-sm text-muted-foreground">Optimize marketing strategies using AI-powered tools like customer segmentation, predictive lead scoring, and personalized marketing campaigns.</div>
+              <div className="text-2xl font-semibold leading-none tracking-tight">AI Business Assistant</div>
+              <div className="text-sm text-muted-foreground">Automate routine tasks, manage communications, and improve productivity with your AI-powered virtual assistant.</div>
               </div>
               <div className="p-6 pt-0">
-                <Image
-                  src="https://picsum.photos/202/150"
-                  alt="AI Marketing"
-                  width={200}
-                  height={150}
-                  style={{objectFit: 'cover'}}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-muted-foreground mb-2">Increase your marketing ROI with our AI-driven solutions.</p>
-                <div className="flex items-center justify-between">
-                  <div className="star-rating">
-                    {renderStars(3)}
-                    <span className="ml-1">3.0</span>
-                  </div>
-                  <Button variant="link" asChild>
-                    <Link href="/services/ai-marketing-solutions" prefetch>
-                      Learn More
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex justify-end">
-                <Button asChild>
-                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                </Button>
+              <ul className="list-disc list-inside text-sm text-muted-foreground mb-2">
+                <li>Task Automation</li>
+                <li>Intelligent Scheduling</li>
+                <li>Communication Management</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mb-2">Tools: Zapier, IFTTT, Custom AI Assistants</p>
+              <p className="text-sm text-muted-foreground">"My AI assistant handles all the small tasks, so I can focus on what matters." - Busy Entrepreneur</p>
               </div>
             </div>
 
-            {/* AI Solutions for Process Automation */}
+          {/* AI-Powered Digital Marketing Engine */}
             <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <div className="text-2xl font-semibold leading-none tracking-tight">AI Solutions for Process Automation</div>
-                <div className="text-sm text-muted-foreground">Help businesses automate their workflows with AI, reducing operational costs and increasing efficiency.</div>
+              <div className="text-2xl font-semibold leading-none tracking-tight">AI-Powered Digital Marketing Engine</div>
+              <div className="text-sm text-muted-foreground">Maximize your online reach and engagement with AI-driven ad optimization, content strategy, and social media management.</div>
               </div>
               <div className="p-6 pt-0">
-                <Image
-                  src="https://picsum.photos/203/150"
-                  alt="AI Automation"
-                  width={200}
-                  height={150}
-                  style={{objectFit: 'cover'}}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-muted-foreground mb-2">Automate repetitive tasks and free up your resources with our AI solutions.</p>
-                <div className="flex items-center justify-between">
-                  <div className="star-rating">
-                    {renderStars(4)}
-                    <span className="ml-1">4.0</span>
-                  </div>
-                  <Button variant="link" asChild>
-                    <Link href="/services/ai-process-automation" prefetch>
-                      Learn More
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex justify-end">
-                <Button asChild>
-                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                </Button>
+              <ul className="list-disc list-inside text-sm text-muted-foreground mb-2">
+                <li>AI Ad Optimization</li>
+                <li>Content Strategy & Creation</li>
+                <li>Social Media Automation</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mb-2">Tools: Google Ads, Facebook Ads Manager, AI Content Generators</p>
+              <p className="text-sm text-muted-foreground">"Our digital marketing campaigns are now smarter and more effective thanks to this service." - Marketing Director</p>
               </div>
             </div>
 
-            {/* Customized AI Solutions for Businesses */}
+          {/* Data-Driven Business Dashboard */}
             <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <div className="text-2xl font-semibold leading-none tracking-tight">Customized AI Solutions for Businesses</div>
-                <div className="text-sm text-muted-foreground">Create and implement AI models tailored to your client's specific industry needs.</div>
+              <div className="text-2xl font-semibold leading-none tracking-tight">Data-Driven Business Dashboard</div>
+              <div className="text-sm text-muted-foreground">Visualize key performance indicators (KPIs) and make informed decisions with a centralized, AI-powered dashboard.</div>
               </div>
               <div className="p-6 pt-0">
-                <Image
-                  src="https://picsum.photos/204/150"
-                  alt="Custom AI"
-                  width={200}
-                  height={150}
-                  style={{objectFit: 'cover'}}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-muted-foreground mb-2">We build custom AI models to address your unique business challenges.</p>
-                <div className="flex items-center justify-between">
-                  <div className="star-rating">
-                    {renderStars(5)}
-                    <span className="ml-1">5.0</span>
-                  </div>
-                  <Button variant="link" asChild>
-                    <Link href="/services/custom-ai-solutions" prefetch>
-                      Learn More
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex justify-end">
-                <Button asChild>
-                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                </Button>
-              </div>
+              <ul className="list-disc list-inside text-sm text-muted-foreground mb-2">
+                <li>KPI Tracking & Visualization</li>
+                <li>Real-Time Data Analytics</li>
+                <li>Customizable Reporting</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mb-2">Tools: Tableau, Power BI, Custom AI Dashboards</p>
+              <p className="text-sm text-muted-foreground">"The dashboard gives us a clear, up-to-date view of our business performance." - Operations Manager</p>
             </div>
-            {/* AI-Enhanced Cybersecurity Solutions */}
+          </div>
+
+          {/* AI Content Studio */}
             <div className="hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between rounded-lg border bg-card text-card-foreground shadow-sm">
               <div className="flex flex-col space-y-1.5 p-6">
-                <div className="text-2xl font-semibold leading-none tracking-tight">AI-Enhanced Cybersecurity Solutions</div>
-                <div className="text-sm text-muted-foreground">Protect your business with our AI-driven cybersecurity solutions that detect and prevent threats in real-time.</div>
+              <div className="text-2xl font-semibold leading-none tracking-tight">AI Content Studio</div>
+              <div className="text-sm text-muted-foreground">Generate high-quality content for your website, blog, or social media channels using advanced AI writing tools.</div>
               </div>
               <div className="p-6 pt-0">
-                <Image
-                  src="https://picsum.photos/205/150"
-                  alt="AI Cybersecurity"
-                  width={200}
-                  height={150}
-                  style={{objectFit: 'cover'}}
-                  className="rounded-md mb-2"
-                />
-                <p className="text-sm text-muted-foreground mb-2">Secure your digital assets with our advanced AI-powered protection.</p>
-                <div className="flex items-center justify-between">
-                  <div className="star-rating">
-                    {renderStars(4)}
-                    <span className="ml-1">4.5</span>
-                  </div>
-                  <Button variant="link" asChild>
-                    <Link href="/services/ai-cybersecurity-solutions" prefetch>
-                      Learn More
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-              <div className="p-6 flex justify-end">
-                <Button asChild>
-                  <Link href="/appointment-booking" prefetch>Book an Appointment</Link>
-                </Button>
+              <ul className="list-disc list-inside text-sm text-muted-foreground mb-2">
+                <li>Blog Post Generation</li>
+                <li>Social Media Content</li>
+                <li>Website Copywriting</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mb-2">Tools: GPT-3, Copy.ai, Jasper</p>
+              <p className="text-sm text-muted-foreground">"AI Content Studio helps us maintain a consistent and engaging online presence." - Content Strategist</p>
               </div>
             </div>
           </div>

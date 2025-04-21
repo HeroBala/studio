@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import {ArrowLeft} from 'lucide-react';
@@ -73,6 +71,11 @@ const CareersPage = () => {
       <p className="text-lg text-muted-foreground mb-6 text-center">
         Explore exciting career opportunities at AI Insight Hub.
       </p>
+      <div className="flex justify-center mb-8">
+        <Link href="/teams" className="inline-flex items-center gap-2 text-lg">
+          Meet Our Teams
+        </Link>
+      </div>
 
       {/* New Dashboard Section */}
       <section className="mb-8">

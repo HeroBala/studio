@@ -82,9 +82,6 @@ const MembershipPage = () => {
         <p className="text-lg text-muted-foreground text-center mb-4">
           We Believe in Connection: Come Join Us and Connect Like Never Before
         </p>
-        <p className="text-lg text-muted-foreground text-center mb-8">
-          Sign up to gain access to exclusive content, services, and personalized AI-driven solutions.
-        </p>
         <div className="space-y-6">
           <div>
             <Label htmlFor="email" className="text-lg font-semibold text-foreground">Email Address</Label>
