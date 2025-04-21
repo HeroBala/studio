@@ -188,7 +188,7 @@ const QuizPage = () => {
         </Link>
         <div className="space-x-4">
           <Button onClick={() => router.push('/moderator-application')}
-            className="transition-colors duration-300 bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent"
+            className="transition-colors duration-300 bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent pulse"
           >
             Apply to be a Moderator
           </Button>
@@ -197,7 +197,7 @@ const QuizPage = () => {
 
       {/* New Section for Quiz Night at Utopia */}
       <section className="text-center mb-8">
-        <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle !</h2>
+        <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle </h2>
         {/* Replace the paragraph and button with the following */}
         <Button onClick={handleRegisterClick}
             className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"

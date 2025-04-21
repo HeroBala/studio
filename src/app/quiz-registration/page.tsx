@@ -48,9 +48,9 @@ const QuizRegistrationPage = () => {
   return (
     <div className="container mx-auto py-12">
       <div className="flex justify-start mb-8">
-        <Link href="/" className="inline-flex items-center gap-2 text-lg" prefetch>
+        <Link href="/quiz-page" className="inline-flex items-center gap-2 text-lg" prefetch>
           <ArrowLeft className="h-5 w-5"/>
-          Back to Home
+          Back
         </Link>
       </div>
       <h1 className="text-3xl font-semibold text-center mb-8">Register for AI Trivia Quiz</h1>
