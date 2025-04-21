@@ -22,12 +22,30 @@ const MembershipPage = () => {
   };
 
   const benefits = [
-    "10% discount on all our services",
-    "Exclusive access to premium AI tools and resources",
-    "Get involved in real projects and learn by doing",
-    "Personalized insights and tech recommendations",
-    "Priority access to events like the weekly AI Quiz and more",
-    "Stay ahead by exploring the latest in tech with us"
+    {
+      text: "10% discount on all our services",
+      icon: "/images/benefits/discount.png",
+    },
+    {
+      text: "Exclusive access to premium AI tools and resources",
+      icon: "/images/benefits/premium.png",
+    },
+    {
+      text: "Get involved in real projects and learn by doing",
+      icon: "/images/benefits/projects.png",
+    },
+    {
+      text: "Personalized insights and tech recommendations",
+      icon: "/images/benefits/insights.png",
+    },
+    {
+      text: "Priority access to events like the weekly AI Quiz and more",
+      icon: "/images/benefits/events.png",
+    },
+    {
+      text: "Stay ahead by exploring the latest in tech with us",
+      icon: "/images/benefits/tech.png",
+    }
   ];
 
   return (
@@ -38,21 +56,26 @@ const MembershipPage = () => {
           Back to Home
         </Link>
       </div>
-      <div className="max-w-md mx-auto bg-card rounded-lg shadow-md overflow-hidden">
-        <div className="p-6">
-          <h2 className="text-2xl font-semibold text-center mb-4">Membership Benefits</h2>
-          <ul className="space-y-4 text-muted-foreground">
-            {benefits.map((benefit, index) => (
-              <li key={index} className="flex items-center text-center">
-                <span className="mr-2 text-primary">
-                  <Check className="h-5 w-5"/>
-                </span>
-                {benefit}
-              </li>
-            ))}
-          </ul>
+
+      {/* Membership Benefits Section */}
+      <section className="mb-8">
+        <h2 className="text-3xl font-semibold text-center mb-6">Membership Benefits</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center p-6 bg-card rounded-lg shadow-md transition-transform duration-300 hover:scale-105 animate-slide-in-bottom"
+            >
+              <img
+                src={benefit.icon}
+                alt={`Benefit ${index + 1}`}
+                className="w-16 h-16 mb-4"
+              />
+              <p className="text-center text-muted-foreground">{benefit.text}</p>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
       <div className="max-w-2xl mx-auto mt-8">
         <h1 className="text-3xl font-semibold text-center mb-6">Join Our Membership Today</h1>
