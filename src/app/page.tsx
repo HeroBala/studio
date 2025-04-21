@@ -1,15 +1,3 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1037371989.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3707680959.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:517861887.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1345766180.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2334210955.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2525607579.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2078572748.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:969985961.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2312857495.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3102006289.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1636765857.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3009108692.
 'use client';
 
 import Image from 'next/image';
@@ -139,15 +127,23 @@ export default function Home() {
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
-        <section className="mb-8 text-center bg-secondary rounded-lg p-6 relative">
+        <section className="mb-8 text-center relative rounded-lg p-6" style={{
+          backgroundImage: "url('/images/utopia.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.9,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay
+          backgroundBlendMode: 'overlay',
+          color: 'white'
+        }}>
            <Badge className="absolute top-2 right-2">Cheers With Beers</Badge>
-          <h2 className="text-3xl font-semibold mb-4">
+          <h2 className="text-3xl font-semibold mb-4" style={{color: 'white', fontWeight: 'bold'}}>
             Sunday Funday in Brno!
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg mb-4" style={{color: 'white', fontWeight: 'bold'}}>
             Are you a local, tourist, or student? Come join us this Sunday at Utopia for an epic quiz night! Enjoy a cold beer, challenge your knowledge, and expand your connection list with new people. Don’t miss out on the fun—let’s make this Sunday unforgettable!
           </p>
-          <p className="text-sm text-muted-foreground mb-4">Time Remaining: {timeRemaining}</p>
+          <p className="text-sm mb-4" style={{color: 'white'}}>Time Remaining: {timeRemaining}</p>
           <div className="flex justify-center">
             <Button asChild className="group inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/80 pulse" onClick={handleQuizRegisterClick}>
               <Link href="/quiz-page" prefetch className="flex items-center gap-1">
@@ -407,7 +403,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
-
