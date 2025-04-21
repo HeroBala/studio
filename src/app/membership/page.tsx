@@ -7,6 +7,7 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {cn} from '@/lib/utils';
+import {Check} from "lucide-react";
 
 const MembershipPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,6 +21,15 @@ const MembershipPage = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const benefits = [
+    "10% discount on all our services",
+    "Exclusive access to premium AI tools and resources",
+    "Get involved in real projects and learn by doing",
+    "Personalized insights and tech recommendations",
+    "Priority access to events like the weekly AI Quiz and more",
+    "Stay ahead by exploring the latest in tech with us"
+  ];
+
   return (
     <div className="container mx-auto py-12">
       <div className="flex justify-start mb-8">
@@ -28,9 +38,25 @@ const MembershipPage = () => {
           Back to Home
         </Link>
       </div>
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-md mx-auto bg-card rounded-lg shadow-md overflow-hidden">
+        <div className="p-6">
+          <h2 className="text-2xl font-semibold text-center mb-4">Membership Benefits</h2>
+          <ul className="space-y-4 text-muted-foreground">
+            {benefits.map((benefit, index) => (
+              <li key={index} className="flex items-center text-center">
+                <span className="mr-2 text-primary">
+                  <Check className="h-5 w-5"/>
+                </span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="max-w-2xl mx-auto mt-8">
         <h1 className="text-3xl font-semibold text-center mb-6">Join Our Membership Today</h1>
-         <p className="text-lg text-muted-foreground text-center mb-4">
+        <p className="text-lg text-muted-foreground text-center mb-4">
           We Believe in Connection: Come Join Us and Connect Like Never Before
         </p>
         <p className="text-lg text-muted-foreground text-center mb-8">
@@ -96,14 +122,6 @@ const MembershipPage = () => {
           <div className="text-center">
             Already a member? <Link href="/sign-in" className="hover:underline text-accent">Sign In</Link>
           </div>
-        </div>
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-center">Membership Benefits</h2>
-          <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-            <li>Exclusive access to AI-driven tools and resources</li>
-            <li>Personalized insights and recommendations</li>
-            <li>Priority access to events, like the weekly AI Quiz or other special content.</li>
-          </ul>
         </div>
       </div>
     </div>
