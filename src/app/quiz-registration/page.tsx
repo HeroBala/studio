@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import {ArrowLeft} from 'lucide-react';
@@ -195,7 +193,7 @@ const QuizRegistrationPage = () => {
 
 const TeamCard = ({team}: { team: (typeof teamData)[0] }) => {
   return (
-      <Card className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+      <Card className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
         <div className="relative">
           <Image
               src={team.image}
@@ -221,7 +219,7 @@ const TeamCard = ({team}: { team: (typeof teamData)[0] }) => {
             Total Members: {team.memberCount}
           </p>
         </CardContent>
-        <Button className="w-full rounded-md">Join Team</Button>
+        <Button className="absolute bottom-2 right-2 rounded-md">Join Team</Button>
       </Card>
   );
 };
@@ -238,3 +236,4 @@ Note:
 */
     
     
+
