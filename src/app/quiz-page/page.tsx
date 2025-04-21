@@ -210,29 +210,30 @@ const QuizPage = () => {
           {/* Hall of Fame Section */}
           <section className="mb-8 mt-8">
             <h2 className="text-3xl font-semibold mb-4 text-center">Hall of Fame</h2>
+            {/*Display only one team at a time */}
             <div className="flex overflow-x-auto snap-x">
-              {winningTeams.map((team, index) => (
-                <div key={index} className="snap-start w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
-                  <div className="rounded-lg overflow-hidden shadow-md">
-                    <Image
-                      src={team.image}
-                      alt={team.name}
-                      width={800}
-                      height={450}
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <h3 className="text-xl font-semibold mb-2">
-                        {index === 0 && <span className="mr-2">👑</span>} {/* Crown for the top team */}
-                        {team.name}
-                      </h3>
-                      <p className="text-gray-600">{team.description}</p>
-                      <p className="text-sm text-gray-500">Wins: {team.wins}</p>
-                    </div>
+            {winningTeams.slice(0, 1).map((team, index) => (
+              <div key={index} className="snap-start w-full flex-shrink-0 p-4">
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <Image
+                    src={team.image}
+                    alt={team.name}
+                    width={800}
+                    height={450}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-xl font-semibold mb-2">
+                      {index === 0 && <span className="mr-2">👑</span>} {/* Crown for the top team */}
+                      {team.name}
+                    </h3>
+                    <p className="text-gray-600">{team.description}</p>
+                    <p className="text-sm text-gray-500">Wins: {team.wins}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
           </section>
 
          {/* Utopia's Treats Section */}
