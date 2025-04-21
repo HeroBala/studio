@@ -200,7 +200,8 @@ const TeamCard = ({team}: { team: (typeof teamData)[0] }) => {
               alt={team.name}
               width={300}
               height={200}
-              className="w-full h-48 object-cover"
+              style={{ width: '100%', height: 'auto' }}
+              className="w-full h-32 object-cover"
           />
           <div
               className="absolute inset-0 bg-black bg-opacity-20 hover:bg-opacity-60 transition-opacity duration-300 flex items-center justify-center opacity-0 hover:opacity-100">
