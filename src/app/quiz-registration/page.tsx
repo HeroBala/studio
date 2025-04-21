@@ -15,10 +15,11 @@ import Image from "next/image";
 import {Input} from "@/components/ui/input";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {Label} from "@/components/ui/label";
+import {v4 as uuidv4} from 'uuid';
 
 const teamData = [
   {
-    id: 1,
+    id: '1',
     name: 'The AI Wizards',
     members: ['Alice', 'Bob', 'Charlie', 'David'],
     memberCount: 4,
@@ -26,7 +27,7 @@ const teamData = [
     quote: 'Unlocking the secrets of AI, one algorithm at a time.',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Data Dominators',
     members: ['Diana', 'Eve', 'Frank', 'Gina'],
     memberCount: 4,
@@ -34,7 +35,7 @@ const teamData = [
     quote: 'Ruling the data landscape with precision and insight.',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Analytics Aces',
     members: ['Grace', 'Henry', 'Ivy', 'Jack'],
     memberCount: 4,
@@ -185,21 +186,26 @@ const QuizRegistrationPage = () => {
   const [newTeamQuote, setNewTeamQuote] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [memberCountFilter, setMemberCountFilter] = useState<number | null>(null);
+  const [recentTeams, setRecentTeams] = useState<any[]>([]);
 
   const handleCreateTeam = () => {
-    // Implement your logic here to handle new team creation
-    console.log('Creating Team:', {
+    const newTeam = {
+      id: uuidv4(),
       name: newTeamName,
-      size: newTeamSize,
+      members: Array.from({length: parseInt(newTeamSize)}, (_, i) => `Member ${i + 1}`),
+      memberCount: parseInt(newTeamSize),
+      image: `https://picsum.photos/id/${Math.floor(Math.random() * 100)}/300/200`,
       quote: newTeamQuote,
-    });
-    // Reset the form fields
+    };
+
+    setRecentTeams([newTeam, ...recentTeams]);
+
     setNewTeamName('');
     setNewTeamSize('4');
     setNewTeamQuote('');
   };
 
-  const filteredTeams = teamData.filter(team => {
+  const filteredTeams = teamData.concat(recentTeams).filter(team => {
     const searchMatch = team.name.toLowerCase().includes(searchTerm.toLowerCase());
     const memberCountMatch = memberCountFilter === null || team.memberCount === memberCountFilter;
     return searchMatch && memberCountMatch;
@@ -279,9 +285,21 @@ const QuizRegistrationPage = () => {
         </Select>
       </div>
 
+        {/* Recent Teams Section */}
+        {recentTeams.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4 text-center">Recently Created Teams</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-4">
+              {recentTeams.map((team) => (
+                <TeamCard key={team.id} team={team}/>
+              ))}
+            </div>
+          </section>
+        )}
+
       {/* Team Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-4">
-        {filteredTeams.map((team) => ( // Assuming 'teams' is the array of team objects
+        {teamData.map((team) => ( // Assuming 'teams' is the array of team objects
           <TeamCard key={team.id} team={team}/>
         ))}
       </div>
@@ -289,7 +307,7 @@ const QuizRegistrationPage = () => {
   );
 };
 
-const TeamCard = ({team}: { team: (typeof teamData)[0] }) => {
+const TeamCard = ({team}: { team: any }) => {
   return (
     <Card className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 relative">
       <div className="relative">
@@ -338,3 +356,4 @@ Note:
 */
     
     
+
