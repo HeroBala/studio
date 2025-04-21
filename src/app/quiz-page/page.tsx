@@ -199,10 +199,9 @@ const QuizPage = () => {
       <section className="text-center mb-8">
         <h2 className="text-3xl font-semibold mb-4">Brno Brain Battle </h2>
         {/* Replace the paragraph and button with the following */}
-        <Button onClick={handleRegisterClick}
-            className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80"
-          >
-            Register for Quiz
+        
+        <Button className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80 pulse" onClick={handleRegisterClick}>
+        Register for Quiz <CalendarIcon className="w-4 h-4 ml-2" />
           </Button>
 
         {/* Last Time Winner Section */}
