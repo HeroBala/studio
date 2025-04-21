@@ -165,17 +165,20 @@ const QuizPage = () => {
     {
       name: "The Algoslingers",
       image: "https://picsum.photos/id/300/800/450",
-      description: "A team of machine learning specialists."
+      description: "A team of machine learning specialists.",
+      wins: 5,
     },
     {
       name: "The Data Ninjas",
       image: "https://picsum.photos/id/301/800/450",
-      description: "Experts in data mining and analysis."
+      description: "Experts in data mining and analysis.",
+      wins: 3,
     },
     {
       name: "The Neural Nets",
       image: "https://picsum.photos/id/302/800/450",
-      description: "Passionate about neural networks and deep learning."
+      description: "Passionate about neural networks and deep learning.",
+      wins: 2,
     },
   ];
 
@@ -203,30 +206,34 @@ const QuizPage = () => {
         <Button className="transition-colors duration-300 bg-primary text-primary-foreground hover:bg-primary/80 pulse" onClick={handleRegisterClick}>
         Register for Quiz <CalendarIcon className="w-4 h-4 ml-2" />
           </Button>
-
-        {/* Last Time Winner Section */}
-        <section className="mb-8 mt-8">
-          <h2 className="text-3xl font-semibold mb-4 text-center">Last Time Winner</h2>
-          <div className="flex overflow-x-auto snap-x">
-            {winningTeams.map((team, index) => (
-              <div key={index} className="snap-start w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
-                <div className="rounded-lg overflow-hidden shadow-md">
-                  <Image
-                    src={team.image}
-                    alt={team.name}
-                    width={800}
-                    height={450}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="text-xl font-semibold mb-2">{team.name}</h3>
-                    <p className="text-gray-600">{team.description}</p>
+          
+          {/* Hall of Fame Section */}
+          <section className="mb-8 mt-8">
+            <h2 className="text-3xl font-semibold mb-4 text-center">Hall of Fame</h2>
+            <div className="flex overflow-x-auto snap-x">
+              {winningTeams.map((team, index) => (
+                <div key={index} className="snap-start w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
+                  <div className="rounded-lg overflow-hidden shadow-md">
+                    <Image
+                      src={team.image}
+                      alt={team.name}
+                      width={800}
+                      height={450}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <h3 className="text-xl font-semibold mb-2">
+                        {index === 0 && <span className="mr-2">👑</span>} {/* Crown for the top team */}
+                        {team.name}
+                      </h3>
+                      <p className="text-gray-600">{team.description}</p>
+                      <p className="text-sm text-gray-500">Wins: {team.wins}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
          {/* Utopia's Treats Section */}
         <section className="mb-8">
