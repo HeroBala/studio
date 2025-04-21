@@ -6,7 +6,7 @@ import {useEffect, useState, useRef} from 'react';
 import {ArrowRight} from "lucide-react";
 import {useRouter} from "next/navigation";
 import {cn} from "@/lib/utils";
-import {Bell} from "lucide-react";
+import {Bell, Wrench} from "lucide-react";
 
 interface NavbarProps {
   aiConsultationLink?: string;
@@ -41,6 +41,11 @@ export const Navbar: React.FC<NavbarProps> = ({aiConsultationLink = "/appointmen
 
   return (
     <nav className="bg-primary text-primary-foreground py-4 sticky top-0 z-50 shadow-md transition-all duration-300">
+      <div className="text-center text-lg font-semibold py-1 bg-secondary text-secondary-foreground animate-pulse">
+        <Wrench className="inline-block w-6 h-6 mr-2"/>
+        <span>This page is under construction</span>
+        <Wrench className="inline-block w-6 h-6 ml-2"/>
+      </div>
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="text-2xl font-bold hover:text-accent-foreground transition-colors duration-200" prefetch>
           <span
