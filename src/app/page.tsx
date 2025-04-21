@@ -125,6 +125,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar aiConsultationLink="/appointment-booking" onSectionChange={handleSectionChange} />
+      <Badge className="absolute top-2 right-2">Under Construction</Badge>
       <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         {/* Advertize Section */}
         <section
@@ -234,7 +235,7 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">"Our sales skyrocketed after implementing the Smart E-Shop Builder!" - E-commerce Store Owner</p>
               </div>
               <div className="p-6 flex justify-end">
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/services/smart-eshop-builder" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
                 <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
@@ -276,7 +277,7 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">"Our digital marketing campaigns are now smarter and more effective thanks to this service." - Marketing Director</p>
               </div>
               <div className="p-6 flex justify-end">
-                <Link href="/services" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
+                <Link href="/services/ai-marketing-solutions" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary underline-offset-4 hover:underline h-10 px-4 py-2" prefetch>Learn More</Link>
                 <Link href="/appointment-booking" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2" prefetch>Book Appointment</Link>
               </div>
             </div>
@@ -442,3 +443,4 @@ export default function Home() {
     </div>
   );
 }
+
